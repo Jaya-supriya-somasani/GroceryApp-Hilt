@@ -1,4 +1,4 @@
-package com.example.flipkartgroceries
+package com.example.flipkartgroceries.home
 
 import androidx.lifecycle.ViewModel
 
