@@ -7,7 +7,24 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.flipkartgroceries.HomeFragment"
+        android:name="com.example.flipkartgroceries.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_manageServicesFragment"
+            app:destination="@id/manageServicesFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_userHomeFragment"
+            app:destination="@id/userHomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/manageServicesFragment"
+        android:name="com.example.flipkartgroceries.manageServices.ManageServicesFragment"
+        android:label="fragment_manage_services"
+        tools:layout="@layout/fragment_manage_services" />
+    <fragment
+        android:id="@+id/userHomeFragment"
+        android:name="com.example.flipkartgroceries.userhomepage.UserHomeFragment"
+        android:label="fragment_user_home"
+        tools:layout="@layout/fragment_user_home" />
 </navigation>
