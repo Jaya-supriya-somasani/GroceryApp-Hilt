@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">FlipkartGroceries</string>
+    <string name="manage_services">Manage Services</string>
+    <string name="home">Home</string>
+    <string name="categories_tv">Categories</string>
+    <string name="view_categories_tv">View Categories</string>
+    <string name="add_category_tv">Add category</string>
 </resources>
