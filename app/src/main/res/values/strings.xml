@@ -9,4 +9,8 @@
     <string name="view_products_tv">View Products</string>
     <string name="products_tv">Products</string>
     <string name="submit_tv">Submit</string>
+    <string name="add_product_tv">Add Product</string>
+    <string name="select_image_tv">Select image</string>
+
+
 </resources>

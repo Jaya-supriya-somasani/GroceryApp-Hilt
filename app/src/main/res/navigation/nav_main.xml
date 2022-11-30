@@ -58,7 +58,11 @@
         android:id="@+id/addProductsFragment"
         android:name="com.example.flipkartgroceries.addProducts.AddProductsFragment"
         android:label="AddProductsFragment"
-        tools:layout="@layout/fragment_add_products"/>
+        tools:layout="@layout/fragment_add_products">
+        <action
+            android:id="@+id/action_addProductsFragment_to_viewProductsFragment"
+            app:destination="@id/viewProductsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/viewProductsFragment"
         android:name="com.example.flipkartgroceries.viewProducts.ViewProductsFragment"
