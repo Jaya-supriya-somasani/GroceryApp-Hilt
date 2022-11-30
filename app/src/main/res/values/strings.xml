@@ -11,6 +11,12 @@
     <string name="submit_tv">Submit</string>
     <string name="add_product_tv">Add Product</string>
     <string name="select_image_tv">Select image</string>
+    <string name="category_type_tv">Category Type :</string>
+    <string name="product_image_tv">Product Image :</string>
+    <string name="product_weight_tv">Product weight :</string>
+    <string name="product_mrp_tv">Product MRP :</string>
+    <string name="product_price_tv">Product Price :</string>
+    <string name="product_description_tv">Product Description :</string>
 
 
 </resources>
