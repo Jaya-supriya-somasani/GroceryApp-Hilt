@@ -1,32 +1,17 @@
 package com.example.flipkartgroceries.userhomepage
 
-import androidx.lifecycle.ViewModelProvider
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import com.example.flipkartgroceries.R
+import com.example.flipkartgroceries.base.BaseFragment
+import com.example.flipkartgroceries.databinding.FragmentUserHomeBinding
 
-class UserHomeFragment : Fragment() {
+class UserHomeFragment : BaseFragment<FragmentUserHomeBinding,UserHomeViewModel>() {
+    override fun getViewModel()=UserHomeViewModel::class.java
 
-    companion object {
-        fun newInstance() = UserHomeFragment()
+    override fun getLayoutResource()=R.layout.fragment_user_home
+
+    override fun setUp() {
+        dataBinding.viewModel=viewModel
     }
 
-    private lateinit var viewModel: UserHomeViewModel
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_user_home, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(UserHomeViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
 
 }

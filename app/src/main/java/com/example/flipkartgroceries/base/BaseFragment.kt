@@ -7,15 +7,15 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 
 abstract class BaseFragment<Binding : ViewDataBinding, VM : ViewModel> : Fragment() {
+    abstract fun getViewModel():Class<VM>
     lateinit var viewModel: VM
     lateinit var dataBinding: Binding
     abstract fun getLayoutResource(): Int
     abstract fun setUp()
-    abstract fun initObservers(lifecycleOwner: LifecycleOwner)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,13 +23,14 @@ abstract class BaseFragment<Binding : ViewDataBinding, VM : ViewModel> : Fragmen
         savedInstanceState: Bundle?
     ): View? {
         dataBinding=DataBindingUtil.inflate(inflater,getLayoutResource(),container,false)
-        dataBinding.lifecycleOwner = viewLifecycleOwner
+
         return dataBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel=ViewModelProvider(this)[getViewModel()]
+        dataBinding.lifecycleOwner=viewLifecycleOwner
         setUp()
-        initObservers(viewLifecycleOwner)
     }
 }
