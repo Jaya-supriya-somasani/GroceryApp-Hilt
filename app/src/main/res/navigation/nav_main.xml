@@ -21,10 +21,43 @@
         android:id="@+id/manageServicesFragment"
         android:name="com.example.flipkartgroceries.manageServices.ManageServicesFragment"
         android:label="fragment_manage_services"
-        tools:layout="@layout/fragment_manage_services" />
+        tools:layout="@layout/fragment_manage_services" >
+        <action
+            android:id="@+id/action_manageServicesFragment_to_addCategoryFragment"
+            app:destination="@id/addCategoryFragment" />
+        <action
+            android:id="@+id/action_manageServicesFragment_to_viewCategoriesFragment"
+            app:destination="@id/viewCategoriesFragment" />
+        <action
+            android:id="@+id/action_manageServicesFragment_to_addProductsFragment"
+            app:destination="@id/addProductsFragment" />
+        <action
+            android:id="@+id/action_manageServicesFragment_to_viewProductsFragment"
+            app:destination="@id/viewProductsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/userHomeFragment"
         android:name="com.example.flipkartgroceries.userhomepage.UserHomeFragment"
         android:label="fragment_user_home"
         tools:layout="@layout/fragment_user_home" />
+    <fragment
+        android:id="@+id/addCategoryFragment"
+        android:name="com.example.flipkartgroceries.addCategory.AddCategoryFragment"
+        android:label="AddCategoryFragment"
+        tools:layout="@layout/fragment_add_category"/>
+    <fragment
+        android:id="@+id/viewCategoriesFragment"
+        android:name="com.example.flipkartgroceries.viewCategories.ViewCategoriesFragment"
+        android:label="ViewCategoriesFragment"
+        tools:layout="@layout/fragment_view_categories"/>
+    <fragment
+        android:id="@+id/addProductsFragment"
+        android:name="com.example.flipkartgroceries.addProducts.AddProductsFragment"
+        android:label="AddProductsFragment"
+        tools:layout="@layout/fragment_add_products"/>
+    <fragment
+        android:id="@+id/viewProductsFragment"
+        android:name="com.example.flipkartgroceries.viewProducts.ViewProductsFragment"
+        android:label="ViewProductsFragment"
+        tools:layout="@layout/fragment_view_products"/>
 </navigation>

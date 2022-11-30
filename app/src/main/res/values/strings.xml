@@ -5,4 +5,7 @@
     <string name="categories_tv">Categories</string>
     <string name="view_categories_tv">View Categories</string>
     <string name="add_category_tv">Add category</string>
+    <string name="add_products_tv">Add Products</string>
+    <string name="view_products_tv">View Products</string>
+    <string name="products_tv">Products</string>
 </resources>
