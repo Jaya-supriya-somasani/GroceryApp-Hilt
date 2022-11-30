@@ -44,7 +44,11 @@
         android:id="@+id/addCategoryFragment"
         android:name="com.example.flipkartgroceries.addCategory.AddCategoryFragment"
         android:label="AddCategoryFragment"
-        tools:layout="@layout/fragment_add_category"/>
+        tools:layout="@layout/fragment_add_category">
+        <action
+            android:id="@+id/action_addCategoryFragment_to_viewCategoriesFragment"
+            app:destination="@id/viewCategoriesFragment" />
+    </fragment>
     <fragment
         android:id="@+id/viewCategoriesFragment"
         android:name="com.example.flipkartgroceries.viewCategories.ViewCategoriesFragment"

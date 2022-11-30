@@ -8,4 +8,5 @@
     <string name="add_products_tv">Add Products</string>
     <string name="view_products_tv">View Products</string>
     <string name="products_tv">Products</string>
+    <string name="submit_tv">Submit</string>
 </resources>
