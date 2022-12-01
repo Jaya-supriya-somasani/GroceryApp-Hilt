@@ -1,4 +1,4 @@
-package com.example.flipkartgroceries.roomDatabase
+package com.example.flipkartgroceries.database
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
