@@ -38,6 +38,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@={viewModel.categoryId}"
                 android:maxLines="1" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -55,6 +56,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@={viewModel.categoryName}"
                 android:maxLines="1" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -65,7 +67,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/addCategoryName"
             app:layout_constraintStart_toStartOf="parent"
-            android:text="Select image"
+            android:text="@string/select_image_tv"
             android:onClick="@{()->viewModel.selectImage()}"
             app:icon="@drawable/ic_baseline_image"
             android:layout_marginTop="30dp"
