@@ -1,46 +1,47 @@
 package com.example.flipkartgroceries.addCategory
 
-import android.content.Intent
-import android.graphics.Bitmap
-import androidx.activity.result.ActivityResultLauncher
+import android.content.ContentValues.TAG
+import android.util.Log
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.flipkartgroceries.R
 import com.example.flipkartgroceries.base.BaseFragment
 import com.example.flipkartgroceries.databinding.FragmentAddCategoryBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 
-class AddCategoryFragment : BaseFragment<FragmentAddCategoryBinding, AddCategoryViewModel>() {
-    override fun getViewModel() = AddCategoryViewModel::class.java
-    lateinit var getContent: ActivityResultLauncher<String>
+@AndroidEntryPoint
+class AddCategoryFragment : BaseFragment<FragmentAddCategoryBinding>() {
     override fun getLayoutResource() = R.layout.fragment_add_category
+    private val addCategoryViewModel: AddCategoryViewModel by viewModels()
 
-    //    private val pickPicture= registerForActivityResult(ActivityResultContracts.GetContent())
+    val pickPicture = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
+        if (uri != null) {
+            addCategoryViewModel.categoryImage.value= uri.toString()
+
+        } else {
+            Log.d(TAG, "Image is not selected")
+        }
+    }
+
     override fun setUp() {
-        dataBinding.viewModel = viewModel
+        dataBinding.viewModel = addCategoryViewModel
         lifecycleScope.launchWhenResumed {
-            viewModel.selectImageEvent.collectLatest {
-                val intent = Intent(Intent.ACTION_PICK)
-                intent.type = "image/*"
-                startActivityForResult(intent, 456)
+            addCategoryViewModel.selectImageEvent.collectLatest {
+                pickPicture.launch("image/*")
+
             }
         }
         lifecycleScope.launchWhenResumed {
-            viewModel.submitBtnEvent.collectLatest {
+            addCategoryViewModel.submitBtnEvent.collectLatest {
                 val action =
                     AddCategoryFragmentDirections.actionAddCategoryFragmentToViewCategoriesFragment()
                 findNavController().navigate(action)
             }
         }
 
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == 123) {
-            var bitmap = data?.extras?.get("data ") as Bitmap
-//            dataBinding.selectImg.setImageBitMap
-        }
     }
 
 
