@@ -7,7 +7,7 @@ import androidx.room.Query
 
 @Dao
 interface CategoriesDAO {
-    @Query("Select category_image,category_name from categoriesentity")
+    @Query("Select * from categoriesentity ")
     fun getAllCategories():List<CategoriesEntity>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
