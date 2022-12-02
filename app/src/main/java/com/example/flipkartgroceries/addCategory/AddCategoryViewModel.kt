@@ -17,7 +17,7 @@ class AddCategoryViewModel @Inject constructor(private val groceries: AppDataBas
     private val selectImageEventChannel = Channel<Unit>()
     val selectImageEvent = selectImageEventChannel.receiveAsFlow()
 
-    val categoryId = MutableStateFlow("")
+    val categoryId = MutableStateFlow(0)
     val categoryImage = MutableStateFlow("")
     val categoryName = MutableStateFlow("")
 
@@ -25,20 +25,29 @@ class AddCategoryViewModel @Inject constructor(private val groceries: AppDataBas
     private val submitBtnEventChannel = Channel<Unit>()
     val submitBtnEvent = submitBtnEventChannel.receiveAsFlow()
 
+    private val toastEventChannel=Channel<String>()
+    val toastEvent=toastEventChannel.receiveAsFlow()
+
     fun selectImage() {
         selectImageEventChannel.trySend(Unit)
     }
 
     fun submitCategory() {
         viewModelScope.launch(Dispatchers.IO) {
-            groceries.categoriesDao().insertCategories(
-                CategoriesEntity(
-                    categoryId = categoryId.value,
-                    categoryImage = categoryImage.value,
-                    categoryName = categoryName.value
-                )
-            )
-            submitBtnEventChannel.trySend(Unit)
+           try{
+               groceries.categoriesDao().insertCategories(
+                   CategoriesEntity(
+                       categoryId=categoryId.value,
+                       categoryImage = categoryImage.value,
+                       categoryName = categoryName.value
+                   )
+               )
+               submitBtnEventChannel.trySend(Unit)
+               toastEventChannel.trySend("Data is inserted Successfully")
+           }
+           catch (exception:Exception){
+               toastEventChannel.trySend("Exception raised while inserting data")
+           }
         }
     }
 }
