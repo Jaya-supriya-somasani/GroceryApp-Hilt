@@ -3,7 +3,7 @@
 <data>
     <variable
         name="items"
-        type="com.example.flipkartgroceries.database.ViewCategoryItems" />
+        type="com.example.flipkartgroceries.database.CategoriesEntity" />
 </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -45,7 +45,6 @@
                     android:layout_marginStart="@dimen/dimen_10"
                     android:layout_marginTop="@dimen/dimen_10"
                     android:scaleType="centerCrop"
-                    android:src="@{items.image}"
                     tools:src="@drawable/fresh"
                     app:layout_constraintStart_toEndOf="@id/barrier"
                     app:layout_constraintTop_toTopOf="parent"
