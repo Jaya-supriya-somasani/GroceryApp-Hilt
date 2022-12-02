@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="item"
+            type="com.example.flipkartgroceries.database.ProductsEntity" />
+    </data>
 
     <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_small">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -50,7 +57,8 @@
                 android:id="@+id/categoryNameTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Fruits and vegetables"
+                android:text="@{item.categoryName}"
+                tools:text="Fruits and vegetables"
                 android:layout_marginStart="@dimen/dimen_small"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="@id/categoryTypeTv"
@@ -72,7 +80,8 @@
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1kg"
+                tools:text="1kg"
+                android:text="@{item.productWeight}"
                 android:layout_marginStart="@dimen/dimen_small"
                 app:layout_constraintBottom_toBottomOf="@id/productWeightTv"
                 app:layout_constraintStart_toEndOf="@id/barrier"
@@ -93,7 +102,8 @@
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="700/-"
+                tools:text="700/-"
+                android:text="@{item.productMRP}"
                 android:layout_marginStart="@dimen/dimen_small"
                 app:layout_constraintBottom_toBottomOf="@id/productMRPTv"
                 app:layout_constraintStart_toEndOf="@id/barrier"
@@ -114,7 +124,8 @@
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="200/-"
+                tools:text="200/-"
+                android:text="@{item.productPrice}"
                 android:layout_marginStart="@dimen/dimen_small"
                 app:layout_constraintBottom_toBottomOf="@id/productPriceTv"
                 app:layout_constraintStart_toEndOf="@id/barrier"
@@ -136,8 +147,9 @@
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="expire date : Best before use 12 days of manufacture date"
+                tools:text="expire date : Best before use 12 days of manufacture date"
                 android:layout_marginStart="@dimen/dimen_small"
+                android:text="@{item.description}"
                 app:layout_constraintStart_toEndOf="@id/barrier"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/productDescriptionTv" />
