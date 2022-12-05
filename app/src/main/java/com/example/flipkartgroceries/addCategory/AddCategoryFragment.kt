@@ -46,6 +46,7 @@ class AddCategoryFragment : BaseFragment<FragmentAddCategoryBinding>() {
 
     override fun setUp() {
         dataBinding.viewModel = addCategoryViewModel
+        initToolbar()
         lifecycleScope.launchWhenResumed {
             addCategoryViewModel.selectImageEvent.collectLatest {
                 pickPicture.launch("image/*")
@@ -64,8 +65,10 @@ class AddCategoryFragment : BaseFragment<FragmentAddCategoryBinding>() {
                 Toast.makeText(requireContext(),it,Toast.LENGTH_SHORT).show()
             }
         }
-
     }
-
-
+    private fun initToolbar(){
+        dataBinding.toolbar.setNavigationOnClickListener {
+            findNavController().popBackStack()
+        }
+    }
 }

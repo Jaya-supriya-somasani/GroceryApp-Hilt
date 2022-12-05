@@ -45,6 +45,7 @@ class AddProductsFragment : BaseFragment<FragmentAddProductsBinding>() {
 
     override fun setUp() {
         dataBinding.viewModel = addProductsViewModel
+        initToolbar()
 
         lifecycleScope.launchWhenResumed {
             addProductsViewModel.selectImageEvent.collectLatest {
@@ -70,6 +71,9 @@ class AddProductsFragment : BaseFragment<FragmentAddProductsBinding>() {
             }
         }
     }
-
-
+    private fun initToolbar(){
+        dataBinding.toolbar.setNavigationOnClickListener {
+            findNavController().popBackStack()
+        }
+    }
 }

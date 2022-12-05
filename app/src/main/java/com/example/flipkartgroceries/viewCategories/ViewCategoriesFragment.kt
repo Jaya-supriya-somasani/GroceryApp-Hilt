@@ -2,6 +2,7 @@ package com.example.flipkartgroceries.viewCategories
 
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.example.flipkartgroceries.R
 import com.example.flipkartgroceries.base.BaseFragment
 import com.example.flipkartgroceries.databinding.FragmentViewCategoriesBinding
@@ -20,11 +21,16 @@ class ViewCategoriesFragment :
     override fun setUp() {
         dataBinding.viewModel = viewCategoryViewModel
         dataBinding.recyclerView.adapter=adapter
-
+        initToolbar()
         lifecycleScope.launchWhenResumed {
             viewCategoryViewModel.list.collectLatest {
                 adapter.submitList(it)
             }
+        }
+    }
+    private fun initToolbar(){
+        dataBinding.toolbar.setNavigationOnClickListener {
+            findNavController().popBackStack()
         }
     }
 }

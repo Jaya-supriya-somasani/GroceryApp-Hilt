@@ -19,7 +19,7 @@ class ManageServicesFragment :
 
     override fun setUp() {
         dataBinding.viewModel = manageServicesViewModel
-
+        initToolbar()
         lifecycleScope.launchWhenResumed {
             manageServicesViewModel.addCategoryEvent.collectLatest {
                 val addCategoryAction =
@@ -48,7 +48,11 @@ class ManageServicesFragment :
                 findNavController().navigate(viewProductsAction)
             }
         }
-
     }
 
+    private fun initToolbar() {
+        dataBinding.toolbar.setNavigationOnClickListener {
+            findNavController().popBackStack()
+        }
+    }
 }
