@@ -30,7 +30,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:text="@string/home"
             android:onClick="@{()->viewModel.onUserHomeBtnClicked()}"
-            android:layout_marginTop="@dimen/dimen_10"
+            android:layout_marginTop="@dimen/margin_10"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

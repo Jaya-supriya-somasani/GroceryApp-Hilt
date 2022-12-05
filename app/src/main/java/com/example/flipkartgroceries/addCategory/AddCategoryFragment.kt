@@ -24,6 +24,7 @@ class AddCategoryFragment : BaseFragment<FragmentAddCategoryBinding>() {
     val pickPicture = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
         if (uri != null) {
             addCategoryViewModel.categoryImage.value= uri.toString()
+            dataBinding.imageView.setImageURI(uri)
 
         } else {
             Log.d(TAG, "Image is not selected")

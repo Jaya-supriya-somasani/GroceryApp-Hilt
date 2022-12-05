@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class AddProductsViewModel @Inject constructor(private val groceries: AppDataBase) : ViewModel() {
+class AddProductsViewModel @Inject constructor(private val groceriesDataBase: AppDataBase) : ViewModel() {
     private val addProductEventChannel = Channel<Unit>()
     val addProductEvent = addProductEventChannel.receiveAsFlow()
     val categoryType = MutableStateFlow("")
@@ -39,7 +39,7 @@ class AddProductsViewModel @Inject constructor(private val groceries: AppDataBas
     fun addProductBtnClicked() {
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                groceries.productsDao().insertProducts(
+                groceriesDataBase.productsDao().insertProducts(
                     ProductsEntity(
                         categoryName = categoryType.value,
                         productName = productName.value,

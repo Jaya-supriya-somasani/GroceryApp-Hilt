@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class AddCategoryViewModel @Inject constructor(private val groceries: AppDataBase) : ViewModel() {
+class AddCategoryViewModel @Inject constructor(private val groceriesDataBase: AppDataBase) : ViewModel() {
     private val selectImageEventChannel = Channel<Unit>()
     val selectImageEvent = selectImageEventChannel.receiveAsFlow()
 
@@ -35,7 +35,7 @@ class AddCategoryViewModel @Inject constructor(private val groceries: AppDataBas
     fun submitCategory() {
         viewModelScope.launch(Dispatchers.IO) {
            try{
-               groceries.categoriesDao().insertCategories(
+               groceriesDataBase.categoriesDao().insertCategories(
                    CategoriesEntity(
                        categoryId=categoryId.value,
                        categoryImage = categoryImage.value,
