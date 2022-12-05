@@ -24,6 +24,18 @@ class AddProductsViewModel @Inject constructor(private val groceriesDataBase: Ap
     val productDescription = MutableStateFlow("")
     val selectProductImage = MutableStateFlow("")
     val productId=MutableStateFlow(0)
+    val categoryTypeError=MutableStateFlow("")
+    val categoryErrorEnable=MutableStateFlow(false)
+    val productNameError=MutableStateFlow("")
+    val productNameErrorEnable=MutableStateFlow(false)
+    val productWeightError=MutableStateFlow("")
+    val productWeightErrorEnable=MutableStateFlow(false)
+    val productMrpError=MutableStateFlow("")
+    val productMRPErrorEnable=MutableStateFlow(false)
+    val productPriceError=MutableStateFlow("")
+    val productPriceErrorEnable=MutableStateFlow(false)
+    val productImageError=MutableStateFlow("")
+
 
     private val selectImageChannelEvent = Channel<Unit>()
     val selectImageEvent = selectImageChannelEvent.receiveAsFlow()
@@ -34,6 +46,69 @@ class AddProductsViewModel @Inject constructor(private val groceriesDataBase: Ap
     fun selectProductImage() {
         selectImageChannelEvent.trySend(Unit)
     }
+
+    fun productsValidation(){
+        if (categoryType.value.isEmpty()){
+            categoryErrorEnable.value=true
+            categoryTypeError.value="Enter Category type"
+            productNameError.value=""
+            productWeightError.value=""
+            productMrpError.value=""
+            productPriceError.value=""
+        }
+        else if (productName.value.isEmpty()){
+            productNameErrorEnable.value=true
+            productNameError.value="Enter product name"
+            categoryTypeError.value=""
+            productWeightError.value=""
+            productMrpError.value=""
+            productPriceError.value=""
+        }
+        else if (productWeight.value.isEmpty()){
+            productWeightErrorEnable.value=true
+            productWeightError.value="Enter product Weight"
+            productNameError.value=""
+            productMrpError.value=""
+            categoryTypeError.value=""
+            productPriceError.value=""
+        }
+        else if (productMRP.value.isEmpty()){
+            productMRPErrorEnable.value=true
+            productMrpError.value="Enter product MRP"
+            productNameError.value=""
+            productWeightError.value=""
+            categoryTypeError.value=""
+            productPriceError.value=""
+        }
+        else if (productPrice.value.isEmpty()){
+            productPriceErrorEnable.value=true
+            productPriceError.value="Enter product Price"
+            productNameError.value=""
+            productWeightError.value=""
+            productMrpError.value=""
+            categoryTypeError.value=""
+        }
+        else if (selectProductImage.value.isEmpty()){
+            productImageError.value="Select product image"
+            productNameError.value=""
+            productWeightError.value=""
+            productMrpError.value=""
+            productPriceError.value=""
+            categoryTypeError.value=""
+            toastChannelEvent.trySend("Select Product Image")
+        }
+        else{
+            productNameError.value=""
+            productWeightError.value=""
+            productMrpError.value=""
+            productPriceError.value=""
+            productImageError.value=""
+            categoryTypeError.value=""
+            addProductBtnClicked()
+        }
+
+    }
+
 
 
     fun addProductBtnClicked() {
@@ -51,6 +126,13 @@ class AddProductsViewModel @Inject constructor(private val groceriesDataBase: Ap
                         productId=productId.value
                     )
                 )
+                categoryType.value=""
+                productName.value=""
+                productWeight.value=""
+                productMRP.value=""
+                productPrice.value=""
+                productDescription.value=""
+                selectProductImage.value=""
                 addProductEventChannel.trySend(Unit)
                 toastChannelEvent.trySend("Product details added Successfully")
             }

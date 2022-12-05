@@ -34,7 +34,7 @@
             android:fitsSystemWindows="true"
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/addProductTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -55,11 +55,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/margin_20"
                 android:layout_marginTop="@dimen/margin_20"
-                android:hint="Enter category type"
+                android:hint="@string/enter_category_type_tv"
+                app:errorEnabled="@{viewModel.categoryErrorEnable}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/addProductTv">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/categoryTypeEdt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:maxLines="1"
@@ -74,10 +76,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/margin_20"
                 android:layout_marginTop="@dimen/margin_20"
-                android:hint="Enter Product name"
+                app:errorEnabled="@{viewModel.productNameErrorEnable}"
+                android:hint="@string/enter_product_name_tv"
                 app:layout_constraintTop_toBottomOf="@id/addCategoryType">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/productNameEdt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:maxLines="1"
@@ -92,10 +96,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/margin_20"
                 android:layout_marginTop="@dimen/margin_20"
-                android:hint="Enter Product weight"
+                app:errorEnabled="@{viewModel.productWeightErrorEnable}"
+                android:hint="@string/enter_product_weight_tv"
                 app:layout_constraintTop_toBottomOf="@id/addProductNameTv">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/productWeightEdt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:maxLines="1"
@@ -108,12 +114,14 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:errorEnabled="@{viewModel.productMRPErrorEnable}"
                 android:layout_marginHorizontal="@dimen/margin_20"
                 android:layout_marginTop="@dimen/margin_20"
-                android:hint="Enter Product MRP"
+                android:hint="@string/enter_product_mrp_tv"
                 app:layout_constraintTop_toBottomOf="@id/productWeightTv">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/productMrpEdt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:maxLines="1"
@@ -125,9 +133,10 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:errorEnabled="@{viewModel.productPriceErrorEnable}"
                 android:layout_marginHorizontal="@dimen/margin_20"
                 android:layout_marginTop="@dimen/margin_20"
-                android:hint="Enter Product Price"
+                android:hint="@string/enter_product_price_tv"
                 app:layout_constraintTop_toBottomOf="@id/productMRPTv">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -138,16 +147,16 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/descriptionEdt"
+                android:id="@+id/descriptiontv"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/margin_20"
                 android:layout_marginVertical="@dimen/margin_20"
-                android:hint="Product description"
+                android:hint="@string/product_descriptions_tv"
                 app:layout_constraintTop_toBottomOf="@id/productPriceTv">
-
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/productDesEdt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@={viewModel.productDescription}" />
@@ -162,7 +171,7 @@
                 android:src="@drawable/ic_baseline_image"
                 app:layout_constraintEnd_toStartOf="@id/selectImg"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/descriptionEdt" />
+                app:layout_constraintTop_toBottomOf="@id/descriptiontv" />
 
 
             <com.google.android.material.button.MaterialButton
@@ -185,7 +194,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/dimen_20"
                 android:layout_marginTop="@dimen/margin_20"
-                android:onClick="@{()->viewModel.addProductBtnClicked()}"
+                android:onClick="@{()->viewModel.productsValidation()}"
                 android:text="@string/add_product_tv"
                 android:textAllCaps="false"
                 app:layout_constraintEnd_toEndOf="parent"

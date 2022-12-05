@@ -57,6 +57,9 @@
         <action
             android:id="@+id/action_viewCategoriesFragment_to_addCategoryFragment"
             app:destination="@id/addCategoryFragment" />
+        <action
+            android:id="@+id/action_viewCategoriesFragment_to_manageServicesFragment"
+            app:destination="@id/manageServicesFragment" />
     </fragment>
     <fragment
         android:id="@+id/addProductsFragment"

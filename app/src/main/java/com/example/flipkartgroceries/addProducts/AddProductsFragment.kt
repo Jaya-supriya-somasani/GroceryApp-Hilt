@@ -54,6 +54,33 @@ class AddProductsFragment : BaseFragment<FragmentAddProductsBinding>() {
         }
 
         lifecycleScope.launchWhenResumed {
+            addProductsViewModel.categoryTypeError.collectLatest {
+                dataBinding.addCategoryType.error=addProductsViewModel.categoryTypeError.value
+            }
+        }
+        lifecycleScope.launchWhenResumed {
+            addProductsViewModel.productNameError.collectLatest {
+                dataBinding.addProductNameTv.error=addProductsViewModel.productNameError.value
+            }
+        }
+        lifecycleScope.launchWhenResumed {
+            addProductsViewModel.productWeightError.collectLatest {
+                dataBinding.productWeightTv.error=addProductsViewModel.productWeightError.value
+            }
+        }
+        lifecycleScope.launchWhenResumed {
+            addProductsViewModel.productMrpError.collectLatest {
+                dataBinding.productMRPTv.error=addProductsViewModel.productMrpError.value
+            }
+        }
+        lifecycleScope.launchWhenResumed {
+            addProductsViewModel.productPriceError.collectLatest {
+                dataBinding.productPriceTv.error=addProductsViewModel.productPriceError.value
+            }
+        }
+
+
+        lifecycleScope.launchWhenResumed {
             addProductsViewModel.addProductEvent.collectLatest {
                try {
                    val action =

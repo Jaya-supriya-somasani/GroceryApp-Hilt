@@ -43,7 +43,7 @@
                 android:layout_marginTop="@dimen/dimen_10"
                 android:text="@string/view_categories_tv"
                 android:textColor="@color/black"
-                android:textSize="20sp"
+                android:textSize="@dimen/tv_20"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -53,12 +53,11 @@
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:background="@color/black"
                 android:orientation="vertical"
+                android:paddingBottom="?actionBarSize"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/viewCategoryTv"
-                app:layout_constraintBottom_toBottomOf="parent"
                 tools:itemCount="5"
                 tools:listitem="@layout/item_categories" />
 

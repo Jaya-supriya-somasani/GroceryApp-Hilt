@@ -61,6 +61,12 @@ class AddCategoryFragment : BaseFragment<FragmentAddCategoryBinding>() {
             }
         }
         lifecycleScope.launchWhenResumed {
+            addCategoryViewModel.categoryNameError.collectLatest {
+                dataBinding.addCategoryName.isErrorEnabled=addCategoryViewModel.categoryNameErrorEnable.value
+                dataBinding.addCategoryName.error=addCategoryViewModel.categoryNameError.value
+            }
+        }
+        lifecycleScope.launchWhenResumed {
             addCategoryViewModel.toastEvent.collectLatest {
                 Toast.makeText(requireContext(),it,Toast.LENGTH_SHORT).show()
             }

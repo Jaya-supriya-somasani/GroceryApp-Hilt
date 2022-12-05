@@ -15,7 +15,8 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/dimen_small"
+            android:layout_marginVertical="@dimen/margin_small"
+            android:layout_marginHorizontal="@dimen/margin_normal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -40,9 +41,9 @@
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/imageVw"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_marginStart="@dimen/dimen_10"
+                    android:layout_width="@dimen/dimen_100"
+                    android:layout_height="@dimen/dimen_100"
+                    android:layout_marginStart="@dimen/margin_20"
                     android:layout_marginTop="@dimen/dimen_10"
                     android:scaleType="centerCrop"
                     tools:src="@drawable/fresh"
@@ -67,13 +68,12 @@
                     android:id="@+id/categoryNameTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/dimen_10"
+                    android:layout_marginStart="@dimen/dimen_20"
                     android:text="@{items.categoryName}"
                     tools:text="@string/fruits_tv"
                     android:textColor="@color/black"
                     app:layout_constraintBottom_toBottomOf="@id/categoryLabelTv"
-                    android:textSize="16sp"
-
+                    android:textSize="@dimen/tv_16"
                     app:layout_constraintStart_toEndOf="@id/barrier"
                     app:layout_constraintTop_toTopOf="@id/categoryLabelTv" />
 
@@ -83,6 +83,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dimen_10"
                     android:text="@string/edit_tv"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
