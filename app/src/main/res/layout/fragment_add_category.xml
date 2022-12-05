@@ -9,76 +9,102 @@
             type="com.example.flipkartgroceries.addCategory.AddCategoryViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/addCategoryTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_100"
-            android:text="@string/add_category_tv"
-            android:textColor="@color/black"
-            android:textSize="@dimen/tv_20"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/addCategoryName"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margin_20"
-            android:layout_marginTop="@dimen/dimen_50"
-            android:hint="Enter Category name"
-            app:layout_constraintTop_toBottomOf="@id/addCategoryTv">
+            android:layout_height="wrap_content">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@={viewModel.categoryName}"
-                android:maxLines="1" />
+                android:backgroundTint="@color/white"
+                app:navigationIcon="@drawable/ic_baseline_arrow_back"
+                app:title="@string/add_category_tv"
+                app:titleTextColor="@color/white"/>
 
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/imageView"
-            android:layout_width="@dimen/dimen_100"
-            android:layout_height="@dimen/dimen_100"
-            android:src="@drawable/ic_baseline_image"
-            app:layout_constraintTop_toBottomOf="@id/addCategoryName"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:scaleType="fitXY"
-            app:shapeAppearanceOverlay="@style/RoundedSquare"
-            android:layout_marginTop="@dimen/margin_20" />
+        </com.google.android.material.appbar.AppBarLayout>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/selectImg"
-            android:layout_width="@dimen/dimen_180"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/imageView"
-            app:layout_constraintStart_toStartOf="parent"
-            android:text="@string/select_image_tv"
-            android:textAllCaps="false"
-            android:onClick="@{()->viewModel.selectImage()}"
-            app:icon="@drawable/ic_baseline_image"
-            android:layout_marginTop="@dimen/margin_20"
-            app:layout_constraintEnd_toEndOf="parent"/>
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/submitBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/submit_tv"
-            android:onClick="@{()->viewModel.submitCategory()}"
-            app:layout_constraintTop_toBottomOf="@id/selectImg"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="@dimen/dimen_50"
-            app:layout_constraintEnd_toEndOf="parent"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <TextView
+                android:id="@+id/addCategoryTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_100"
+                android:text="@string/add_category_tv"
+                android:textColor="@color/black"
+                android:textSize="@dimen/tv_20"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/addCategoryName"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_20"
+                android:layout_marginTop="@dimen/dimen_50"
+                android:hint="Enter Category name"
+                app:layout_constraintTop_toBottomOf="@id/addCategoryTv">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:text="@={viewModel.categoryName}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imageView"
+                android:layout_width="@dimen/dimen_100"
+                android:layout_height="@dimen/dimen_100"
+                android:layout_marginTop="@dimen/margin_20"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_baseline_image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/addCategoryName"
+                app:shapeAppearanceOverlay="@style/RoundedSquare" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/selectImg"
+                android:layout_width="@dimen/dimen_180"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_20"
+                android:onClick="@{()->viewModel.selectImage()}"
+                android:text="@string/select_image_tv"
+                android:textAllCaps="false"
+                app:icon="@drawable/ic_baseline_image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imageView" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/submitBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_50"
+                android:onClick="@{()->viewModel.submitCategory()}"
+                android:text="@string/submit_tv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/selectImg" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
 
 </layout>

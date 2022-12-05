@@ -21,6 +21,7 @@
     <string name="category_name_tv">Category Name</string>
     <string name="fruits_tv">Fruits</string>
     <string name="edit_tv">Edit</string>
+    <string name="manage_services_tv">Manage Services</string>
 
 
 </resources>
