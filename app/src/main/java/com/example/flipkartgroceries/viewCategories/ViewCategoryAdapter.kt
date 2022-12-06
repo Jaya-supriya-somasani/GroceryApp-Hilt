@@ -10,8 +10,8 @@ import com.example.flipkartgroceries.base.inflate
 import com.example.flipkartgroceries.database.CategoriesEntity
 import com.example.flipkartgroceries.databinding.ItemCategoriesBinding
 
-class ViewCategoryAdapter
-    : BaseAdapter<CategoriesEntity>() {
+class ViewCategoryAdapter(private val editBtnClicked: (CategoriesEntity) -> (Unit)) :
+    BaseAdapter<CategoriesEntity>() {
 
     lateinit var binding: ItemCategoriesBinding
     override fun onCreateViewHolder(
@@ -24,6 +24,9 @@ class ViewCategoryAdapter
     inner class ViewCategoryViewHolder(binding: ItemCategoriesBinding) :
         BaseViewHolder<ItemCategoriesBinding, CategoriesEntity>(binding) {
         override fun onBind(item: CategoriesEntity) {
+            binding.editBtn.setOnClickListener {
+                editBtnClicked(getItem(adapterPosition))
+            }
             try {
                 binding.items = item
                 Glide.with(binding.imageVw.context).load(item.categoryImage)
