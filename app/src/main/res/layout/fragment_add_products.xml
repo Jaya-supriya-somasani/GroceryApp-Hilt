@@ -168,7 +168,7 @@
                 android:layout_width="@dimen/dimen_100"
                 android:layout_height="@dimen/dimen_100"
                 android:layout_marginTop="@dimen/margin_20"
-                android:src="@drawable/ic_baseline_image"
+                android:src="@drawable/image_icon"
                 app:layout_constraintEnd_toStartOf="@id/selectImg"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/descriptiontv" />

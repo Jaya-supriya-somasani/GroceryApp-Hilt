@@ -28,19 +28,23 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/categoriesCard"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/dimen_150"
+                android:layout_marginHorizontal="@dimen/margin_10"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_margin="@dimen/dimen_10">
+                app:strokeColor="@color/blue_200"
+                app:cardElevation="@dimen/margin_10"
+                app:strokeWidth="1dp"
+                app:layout_constraintBottom_toTopOf="@id/itemProductsCard">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@drawable/gradient_color"
                     android:padding="@dimen/dimen_10">
 
                     <com.google.android.material.textview.MaterialTextView
@@ -48,6 +52,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/categories_tv"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:textSize="@dimen/tv_18"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:layout_marginTop="@dimen/dimen_20"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -59,7 +68,7 @@
                         android:onClick="@{()->viewModel.addCategoryBtn()}"
                         app:layout_constraintEnd_toStartOf="@id/viewCategoryBtn"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/categoryTv" />
+                        app:layout_constraintBottom_toBottomOf="parent" />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/viewCategoryBtn"
@@ -69,18 +78,23 @@
                         android:text="@string/view_categories_tv"
                         android:onClick="@{()->viewModel.viewCategoriesBtn()}"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/addCategoryBtn"
-                        app:layout_constraintTop_toBottomOf="@id/categoryTv" />
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/addCategoryBtn" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/itemProductsCard"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/dimen_150"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/blue_200"
+                app:cardElevation="@dimen/margin_10"
                 app:layout_constraintTop_toBottomOf="@id/categoriesCard"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_margin="@dimen/dimen_10">
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginHorizontal="@dimen/margin_10"
+                >
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -90,6 +104,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/products_tv"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/tv_18"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginTop="@dimen/margin_20"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent"/>
                     <com.google.android.material.button.MaterialButton
@@ -99,7 +118,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         android:onClick="@{()->viewModel.addProductsBtn()}"
                         app:layout_constraintEnd_toStartOf="@id/viewProductsBtn"
-                        app:layout_constraintTop_toBottomOf="@id/productsTv"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         android:text="@string/add_products_tv"/>
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/viewProductsBtn"
@@ -109,10 +128,10 @@
                         android:onClick="@{()->viewModel.viewProductsBtn()}"
                         app:layout_constraintStart_toEndOf="@id/addProductsBtn"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/productsTv"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         />
                 </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 

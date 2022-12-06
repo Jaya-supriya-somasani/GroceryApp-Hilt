@@ -1,37 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
-<data>
-    <variable
-        name="viewModel"
-        type="com.example.flipkartgroceries.home.HomeViewModel" />
-</data>
-    <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.flipkartgroceries.home.HomeViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/manageServicesBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/manage_services"
-            android:onClick="@{()->viewModel.onManageServiceClicked()}"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <ImageView
+            android:id="@+id/dashboardImg"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_200"
+            android:layout_marginTop="@dimen/dimen_48"
+            android:scaleType="fitCenter"
+            android:src="@drawable/admin_dashboard"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/homeBtn"
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/headingTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/manageServicesBtn"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/margin_20"
+            android:text="@string/welcome_to_admin_dash_board_tv"
+            android:textColor="@color/black"
+            android:textSize="@dimen/tv_20"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            android:text="@string/home"
-            android:onClick="@{()->viewModel.onUserHomeBtnClicked()}"
-            android:layout_marginTop="@dimen/margin_10"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dashboardImg" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/servicesCardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_normal"
+            android:layout_marginTop="@dimen/dimen_50"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/headingTv"
+            app:shapeAppearance="@style/RoundedSquare"
+            app:strokeColor="@color/blue_200"
+            app:strokeWidth="1dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/servicesDescriptionTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_small"
+                    android:layout_marginTop="@dimen/margin_normal"
+                    android:text="To access the products details , categories detail click here"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/tv_16"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/manageServicesBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_small"
+                    android:layout_marginEnd="@dimen/margin_small"
+                    android:layout_marginBottom="@dimen/dimen_x_small"
+                    android:backgroundTint="@color/blue_200"
+                    android:onClick="@{()->viewModel.onManageServiceClicked()}"
+                    android:text="@string/manage_services"
+                    android:textAllCaps="false"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/servicesDescriptionTv" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_normal"
+            android:layout_marginTop="@dimen/dimen_50"
+            app:layout_constraintTop_toBottomOf="@id/servicesCardView"
+            app:shapeAppearance="@style/RoundedSquare"
+            app:strokeColor="@color/blue_200"
+            app:strokeWidth="1dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/homeDescriptionTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_small"
+                    android:layout_marginTop="@dimen/margin_normal"
+                    android:text="To Access the User Categories and products data, click here"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/tv_16"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/homeBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_10"
+                    android:layout_marginEnd="@dimen/margin_small"
+                    android:layout_marginBottom="@dimen/dimen_x_small"
+                    android:backgroundTint="@color/blue_200"
+                    android:onClick="@{()->viewModel.onUserHomeBtnClicked()}"
+                    android:text="@string/home"
+                    android:textAllCaps="false"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeDescriptionTv" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
