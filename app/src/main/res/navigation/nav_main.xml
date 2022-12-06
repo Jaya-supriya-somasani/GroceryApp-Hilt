@@ -3,23 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_main"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/admin_home_fragment">
 
     <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.example.flipkartgroceries.home.HomeFragment"
+        android:id="@+id/admin_home_fragment"
+        android:name="com.example.flipkartgroceries.admin.home.AdminHomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_homeFragment_to_manageServicesFragment"
-            app:destination="@id/manageServicesFragment" />
+        tools:layout="@layout/fragment_admin_home" >
+
         <action
             android:id="@+id/action_homeFragment_to_userHomeFragment"
             app:destination="@id/userHomeFragment" />
+        <action
+            android:id="@+id/action_admin_home_fragment_to_manageServicesFragment"
+            app:destination="@id/manageServicesFragment" />
     </fragment>
     <fragment
         android:id="@+id/manageServicesFragment"
-        android:name="com.example.flipkartgroceries.manageServices.ManageServicesFragment"
+        android:name="com.example.flipkartgroceries.admin.manageServices.ManageServicesFragment"
         android:label="fragment_manage_services"
         tools:layout="@layout/fragment_manage_services" >
         <action
@@ -37,12 +38,12 @@
     </fragment>
     <fragment
         android:id="@+id/userHomeFragment"
-        android:name="com.example.flipkartgroceries.userhomepage.UserHomeFragment"
+        android:name="com.example.flipkartgroceries.user.UserHomeFragment"
         android:label="fragment_user_home"
         tools:layout="@layout/fragment_user_home" />
     <fragment
         android:id="@+id/addCategoryFragment"
-        android:name="com.example.flipkartgroceries.addCategory.AddCategoryFragment"
+        android:name="com.example.flipkartgroceries.admin.addCategory.AddCategoryFragment"
         android:label="AddCategoryFragment"
         tools:layout="@layout/fragment_add_category">
         <action
@@ -51,7 +52,7 @@
     </fragment>
     <fragment
         android:id="@+id/viewCategoriesFragment"
-        android:name="com.example.flipkartgroceries.viewCategories.ViewCategoriesFragment"
+        android:name="com.example.flipkartgroceries.admin.viewCategories.ViewCategoriesFragment"
         android:label="ViewCategoriesFragment"
         tools:layout="@layout/fragment_view_categories">
         <action
@@ -63,7 +64,7 @@
     </fragment>
     <fragment
         android:id="@+id/addProductsFragment"
-        android:name="com.example.flipkartgroceries.addProducts.AddProductsFragment"
+        android:name="com.example.flipkartgroceries.admin.addProducts.AddProductsFragment"
         android:label="AddProductsFragment"
         tools:layout="@layout/fragment_add_products">
         <action
@@ -72,7 +73,7 @@
     </fragment>
     <fragment
         android:id="@+id/viewProductsFragment"
-        android:name="com.example.flipkartgroceries.viewProducts.ViewProductsFragment"
+        android:name="com.example.flipkartgroceries.admin.viewProducts.ViewProductsFragment"
         android:label="ViewProductsFragment"
         tools:layout="@layout/fragment_view_products"/>
 </navigation>

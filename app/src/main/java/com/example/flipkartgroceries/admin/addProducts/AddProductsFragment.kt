@@ -1,4 +1,4 @@
-package com.example.flipkartgroceries.addProducts
+package com.example.flipkartgroceries.admin.addProducts
 
 import android.app.Activity
 import android.content.ContentValues.TAG
@@ -19,7 +19,7 @@ import kotlinx.coroutines.flow.collectLatest
 @AndroidEntryPoint
 class AddProductsFragment : BaseFragment<FragmentAddProductsBinding>() {
     override fun getLayoutResource() = R.layout.fragment_add_products
-    private val addProductsViewModel :AddProductsViewModel by viewModels()
+    private val addProductsViewModel : AddProductsViewModel by viewModels()
     val selectProductImage=registerForActivityResult(ActivityResultContracts.GetContent()){uri->
         if (uri!=null){
             addProductsViewModel.selectProductImage.value=uri.toString()

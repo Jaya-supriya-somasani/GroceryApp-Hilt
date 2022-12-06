@@ -1,4 +1,4 @@
-package com.example.flipkartgroceries.manageServices
+package com.example.flipkartgroceries.admin.manageServices
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.channels.Channel

@@ -1,4 +1,4 @@
-package com.example.flipkartgroceries.viewCategories
+package com.example.flipkartgroceries.admin.viewCategories
 
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope

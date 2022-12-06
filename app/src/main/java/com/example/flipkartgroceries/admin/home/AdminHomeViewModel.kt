@@ -1,10 +1,13 @@
-package com.example.flipkartgroceries.home
+package com.example.flipkartgroceries.admin.home
 
 import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
+import javax.inject.Inject
 
-class HomeViewModel : ViewModel() {
+@HiltViewModel
+class AdminHomeViewModel @Inject constructor() : ViewModel() {
     private val manageServiceEventChannel = Channel<Unit>()
     val manageServiceEvent = manageServiceEventChannel.receiveAsFlow()
 

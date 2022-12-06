@@ -1,4 +1,4 @@
-package com.example.flipkartgroceries.viewCategories
+package com.example.flipkartgroceries.admin.viewCategories
 
 import android.util.Log
 import android.view.ViewGroup

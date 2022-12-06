@@ -1,4 +1,4 @@
-package com.example.flipkartgroceries.viewProducts
+package com.example.flipkartgroceries.admin.viewProducts
 
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.collectLatest
 class ViewProductsFragment : BaseFragment<FragmentViewProductsBinding>() {
     private val viewProductsViewModel : ViewProductsViewModel by viewModels()
     override fun getLayoutResource() = R.layout.fragment_view_products
-    var adapter=ViewProductsAdapter()
+    var adapter= ViewProductsAdapter()
 
     override fun setUp() {
         dataBinding.viewModel = viewProductsViewModel

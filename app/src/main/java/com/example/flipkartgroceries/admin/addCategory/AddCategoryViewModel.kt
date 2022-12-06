@@ -1,4 +1,4 @@
-package com.example.flipkartgroceries.addCategory
+package com.example.flipkartgroceries.admin.addCategory
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

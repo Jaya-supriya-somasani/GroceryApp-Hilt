@@ -5,7 +5,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.flipkartgroceries.home.HomeViewModel" />
+            type="com.example.flipkartgroceries.admin.home.AdminHomeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
