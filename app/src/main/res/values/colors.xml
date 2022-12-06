@@ -9,5 +9,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="blue_200">#025CA5</color>
     <color name="grey_500">#e9e9e9</color>
+    <color name="cobalt_blue">#1757e1</color>
     <color name="green_gangsta">#059C3C</color>
+    <color name="desert_ash_80">#e5e5e5</color>
+    <color name="yellow_40">#FFFEF2</color>
 </resources>
