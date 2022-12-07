@@ -12,14 +12,21 @@ import kotlinx.coroutines.flow.collectLatest
 class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>() {
     override fun getLayoutResource() = R.layout.fragment_home_tab
     private val homeTabViewModel: HomeTabViewModel by viewModels()
-    var adapter = HomeTabCategoryListAdapter()
+    var categoryAdapter = HomeTabCategoryListAdapter()
+    var frequentlyBoughtAdapter=HomeFrequentlyBoughtAdapter()
 
     override fun setUp() {
         dataBinding.viewModel = homeTabViewModel
-        dataBinding.categoryRecyclerView.adapter = adapter
+        dataBinding.categoryRecyclerView.adapter = categoryAdapter
+        dataBinding.frequentlyBoughtRecyclerVW.adapter=frequentlyBoughtAdapter
         lifecycleScope.launchWhenResumed {
             homeTabViewModel.categoriesDetailsList.collectLatest {
-                adapter.submitList(it)
+                categoryAdapter.submitList(it)
+            }
+        }
+        lifecycleScope.launchWhenResumed {
+            homeTabViewModel.frequentlyBoughtProductsList.collectLatest {
+                frequentlyBoughtAdapter.submitList(it)
             }
         }
     }

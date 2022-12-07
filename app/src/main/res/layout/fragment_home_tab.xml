@@ -8,145 +8,190 @@
             name="viewModel"
             type="com.example.flipkartgroceries.user.home_tab.HomeTabViewModel" />
     </data>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:fillViewport="true">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/categoryRecyclerView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginHorizontal="@dimen/margin_small"
-            android:layout_marginTop="@dimen/margin_normal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:listitem="@layout/item_home_categories"
-            tools:itemCount="6" />
-        <View
-            android:id="@+id/dividerTop"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            app:layout_constraintTop_toBottomOf="@id/categoryRecyclerView"
-            android:layout_marginTop="@dimen/margin_normal"
-            android:background="@color/grey_500"/>
-        <ImageView
-            android:id="@+id/locationIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/dividerTop"
-            app:layout_constraintStart_toStartOf="parent"
-            android:src="@drawable/ic_baseline_location"
-            android:layout_marginStart="@dimen/margin_normal"
-            android:layout_marginTop="@dimen/margin_normal" />
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/addressTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="@id/locationIcon"
-            app:layout_constraintBottom_toBottomOf="@id/locationIcon"
-            app:layout_constraintStart_toEndOf="@id/locationIcon"
-            android:text="Delivery to 500032, Hyderabad"
-            android:layout_marginStart="@dimen/margin_normal"
-            android:textColor="@color/black"/>
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/changeAddressBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Change"
-            app:strokeWidth="1dp"
-            android:backgroundTint="@color/white"
-            android:textColor="@color/cobalt_blue"
-            app:strokeColor="@color/desert_ash_80"
-            android:textAllCaps="false"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/locationIcon"
-            app:layout_constraintBottom_toBottomOf="@id/locationIcon"
-            android:layout_marginEnd="@dimen/margin_normal"
-            />
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/bannerCardVW"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            app:strokeWidth="1dp"
-            app:strokeColor="@color/grey_500"
-            android:layout_marginTop="@dimen/margin_normal"
-            android:layout_marginHorizontal="@dimen/margin_normal"
-            app:layout_constraintTop_toBottomOf="@id/changeAddressBtn"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
-            <androidx.constraintlayout.widget.ConstraintLayout
+            android:fitsSystemWindows="true"
+            android:layout_height="wrap_content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/categoryRecyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/groceriesImg"
-                    android:layout_width="80dp"
-                    android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginHorizontal="@dimen/margin_small"
+                android:layout_marginTop="@dimen/margin_normal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:listitem="@layout/item_home_categories"
+                tools:itemCount="6" />
+            <View
+                android:id="@+id/dividerTop"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                app:layout_constraintTop_toBottomOf="@id/categoryRecyclerView"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:background="@color/grey_500"/>
+            <ImageView
+                android:id="@+id/locationIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/dividerTop"
+                app:layout_constraintStart_toStartOf="parent"
+                android:src="@drawable/ic_baseline_location"
+                android:layout_marginStart="@dimen/margin_normal"
+                android:layout_marginTop="@dimen/margin_normal" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/addressTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@id/locationIcon"
+                app:layout_constraintBottom_toBottomOf="@id/locationIcon"
+                app:layout_constraintStart_toEndOf="@id/locationIcon"
+                android:text="Delivery to 500032, Hyderabad"
+                android:layout_marginStart="@dimen/margin_normal"
+                android:textColor="@color/black"/>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/changeAddressBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Change"
+                app:strokeWidth="1dp"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/cobalt_blue"
+                app:strokeColor="@color/desert_ash_80"
+                android:textAllCaps="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/locationIcon"
+                app:layout_constraintBottom_toBottomOf="@id/locationIcon"
+                android:layout_marginEnd="@dimen/margin_normal"
+                />
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/bannerCardVW"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/grey_500"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:layout_marginHorizontal="@dimen/margin_normal"
+                app:layout_constraintTop_toBottomOf="@id/changeAddressBtn"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/groceriesImg"
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:src="@drawable/fresh"
+                        android:scaleType="fitXY" />
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/headingTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Groceries in 45 Mins"
+                        app:layout_constraintStart_toEndOf="@id/groceriesImg"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:layout_marginStart="@dimen/margin_small"
+                        android:textSize="@dimen/tv_18"
+                        android:textStyle="bold" />
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/descriptionTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/headingTv"
+                        app:layout_constraintStart_toEndOf="@id/groceriesImg"
+                        android:text="Fruits, Veggies, Dairy and More"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/margin_small"
+                        android:layout_marginTop="@dimen/margin_xx_small"/>
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Try Quick"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginEnd="@dimen/margin_small"
+                        android:textAllCaps="false"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/dealsTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shop for 800 to get Steal Deals"
+                app:layout_constraintTop_toBottomOf="@id/bannerCardVW"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:layout_marginStart="@dimen/margin_normal"
+                android:textSize="@dimen/tv_16"
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
+            <include
+                android:id="@+id/dealsLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/item_deals"
+                app:layout_constraintTop_toBottomOf="@id/dealsTv"
+                app:layout_constraintStart_toStartOf="parent" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/frequentlyBoughtLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/yellow_40"
+                app:layout_constraintTop_toBottomOf="@id/dealsLayout">
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/frequentlyBoughtHeadingTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/frequently_bought_tv"
+                    app:layout_constraintTop_toTopOf="@id/viewAllBtn"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:src="@drawable/fresh"
-                    android:scaleType="fitXY" />
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/headingTv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Groceries in 45 Mins"
-                    app:layout_constraintStart_toEndOf="@id/groceriesImg"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@id/viewAllBtn"
                     android:textColor="@color/black"
-                    android:layout_marginTop="@dimen/margin_small"
-                    android:layout_marginStart="@dimen/margin_small"
-                    android:textSize="@dimen/tv_18"
                     android:textStyle="bold"
-                    />
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/descriptionTv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/headingTv"
-                    app:layout_constraintStart_toEndOf="@id/groceriesImg"
-                    android:text="Fruits, Veggies, Dairy and More"
-                    android:textColor="@color/black"
-                    android:layout_marginStart="@dimen/margin_small"
-                    android:layout_marginTop="@dimen/margin_xx_small"/>
+                    android:layout_marginStart="@dimen/margin_normal"/>
                 <com.google.android.material.button.MaterialButton
+                    android:id="@+id/viewAllBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Try Quick"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:layout_marginEnd="@dimen/margin_small"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:text="@string/view_all_tv"
+                    android:layout_marginEnd="@dimen/margin_normal"
+                    android:backgroundTint="@color/cobalt_blue"
+                    android:layout_marginTop="@dimen/dimen_12"
                     android:textAllCaps="false"/>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </com.google.android.material.card.MaterialCardView>
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/dealsTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Shop for 800 to get Steal Deals"
-            app:layout_constraintTop_toBottomOf="@id/bannerCardVW"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="@dimen/margin_normal"
-            android:layout_marginStart="@dimen/margin_normal"
-            android:textSize="@dimen/tv_16"
-            android:textColor="@color/black"
-            android:textStyle="bold"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/frequentlyBoughtRecyclerVW"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:orientation="horizontal"
+                    android:layout_marginHorizontal="@dimen/dimen_12"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@id/viewAllBtn"
+                    android:layout_marginTop="@dimen/margin_small"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:listitem="@layout/item_frequently_bought"
+                    tools:itemCount="10"/>
 
-        <include
-            android:id="@+id/dealsLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            layout="@layout/item_deals"
-            app:layout_constraintTop_toBottomOf="@id/dealsTv"
-            app:layout_constraintStart_toStartOf="parent" />
-        <include
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            layout="@layout/item_frequently_bought"
-            app:layout_constraintTop_toBottomOf="@id/dealsLayout"
-            />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
 </layout>
