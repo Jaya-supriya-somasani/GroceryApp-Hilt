@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="item"
+            type="com.example.flipkartgroceries.database.CategoriesEntity" />
+    </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="60dp"
@@ -8,17 +13,18 @@
         android:layout_marginHorizontal="@dimen/margin_small">
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/category_img"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:shapeAppearance="@style/CircleShape"
+            android:scaleType="fitXY"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:shapeAppearance="@style/CircleShape"
-            android:src="@drawable/fresh"
             tools:src="@drawable/shopping"/>
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Oil and Ghee"
+            tools:text="Oil and Ghee"
+            android:text="@{item.categoryName}"
             app:layout_constraintTop_toBottomOf="@id/category_img"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="@dimen/margin_xx_small"

@@ -73,6 +73,7 @@
             app:layout_constraintTop_toBottomOf="@id/grocerySearch"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:tabIndicatorFullWidth="false"
             app:tabIndicatorColor="@color/blue_200" />
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPager"
