@@ -17,13 +17,13 @@ class ViewCategoriesFragment :
 
     override fun getLayoutResource() = R.layout.fragment_view_categories
 
-    var adapter = ViewCategoryAdapter{
+    var adapter = ViewCategoryAdapter {
         editBtnClicked(it)
     }
 
     override fun setUp() {
         dataBinding.viewModel = viewCategoryViewModel
-        dataBinding.recyclerView.adapter=adapter
+        dataBinding.recyclerView.adapter = adapter
         initToolbar()
         lifecycleScope.launchWhenResumed {
             viewCategoryViewModel.list.collectLatest {
@@ -31,13 +31,18 @@ class ViewCategoriesFragment :
             }
         }
     }
-    private fun initToolbar(){
+    private fun initToolbar() {
         dataBinding.toolbar.setNavigationOnClickListener {
             findNavController().popBackStack()
         }
     }
-    private fun editBtnClicked(item: CategoriesEntity){
-        val action=ViewCategoriesFragmentDirections.actionViewCategoriesFragmentToAddCategoryFragment()
+    private fun editBtnClicked(item: CategoriesEntity) {
+        val categoryN = adapter.itemPosition.categoryName
+        val categoryImg = adapter.itemPosition.categoryName
+        val categoryId = adapter.itemPosition.categoryId
+        val action =
+            ViewCategoriesFragmentDirections.actionViewCategoriesFragmentToAddCategoryFragment(
+                CategoriesEntity(categoryId, categoryImg, categoryN))
         findNavController().navigate(action)
     }
 }

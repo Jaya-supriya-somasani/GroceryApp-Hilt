@@ -10,6 +10,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.flipkartgroceries.R
 import com.example.flipkartgroceries.base.BaseFragment
 import com.example.flipkartgroceries.databinding.FragmentAddCategoryBinding
@@ -20,10 +21,11 @@ import kotlinx.coroutines.flow.collectLatest
 class AddCategoryFragment : BaseFragment<FragmentAddCategoryBinding>() {
     override fun getLayoutResource() = R.layout.fragment_add_category
     private val addCategoryViewModel: AddCategoryViewModel by viewModels()
+    private val args: AddCategoryFragmentArgs by navArgs()
 
     val pickPicture = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
         if (uri != null) {
-            addCategoryViewModel.categoryImage.value= uri.toString()
+            addCategoryViewModel.categoryImage.value = uri.toString()
             dataBinding.imageView.setImageURI(uri)
 
         } else {
@@ -53,6 +55,10 @@ class AddCategoryFragment : BaseFragment<FragmentAddCategoryBinding>() {
 
             }
         }
+        addCategoryViewModel.categoryId.value=args.details.categoryId
+        addCategoryViewModel.categoryImage.value=args.details.categoryImage.toString()
+        addCategoryViewModel.categoryName.value=args.details.categoryName.toString()
+
         lifecycleScope.launchWhenResumed {
             addCategoryViewModel.submitBtnEvent.collectLatest {
                 val action =
@@ -62,17 +68,17 @@ class AddCategoryFragment : BaseFragment<FragmentAddCategoryBinding>() {
         }
         lifecycleScope.launchWhenResumed {
             addCategoryViewModel.categoryNameError.collectLatest {
-                dataBinding.addCategoryName.isErrorEnabled=addCategoryViewModel.categoryNameErrorEnable.value
-                dataBinding.addCategoryName.error=addCategoryViewModel.categoryNameError.value
+                dataBinding.addCategoryName.isErrorEnabled = addCategoryViewModel.categoryNameErrorEnable.value
+                dataBinding.addCategoryName.error = addCategoryViewModel.categoryNameError.value
             }
         }
         lifecycleScope.launchWhenResumed {
             addCategoryViewModel.toastEvent.collectLatest {
-                Toast.makeText(requireContext(),it,Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
             }
         }
     }
-    private fun initToolbar(){
+    private fun initToolbar() {
         dataBinding.toolbar.setNavigationOnClickListener {
             findNavController().popBackStack()
         }

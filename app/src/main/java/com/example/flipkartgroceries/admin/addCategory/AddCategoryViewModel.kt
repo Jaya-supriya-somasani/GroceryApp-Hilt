@@ -1,5 +1,6 @@
 package com.example.flipkartgroceries.admin.addCategory
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.flipkartgroceries.database.AppDataBase
@@ -38,19 +39,29 @@ class AddCategoryViewModel @Inject constructor(private val groceriesDataBase: Ap
     fun addCategoryValidation() {
         if (categoryName.value.isEmpty()) {
             categoryNameError.value = "Enter Category Name"
-            categoryNameErrorEnable.value=true
-        }else if (categoryImage.value.isEmpty()){
-            categoryNameError.value=""
-            toastEventChannel.trySend("Select Category image")
-        }
-        else {
+            categoryNameErrorEnable.value = true
+        } else if (categoryImage.value.isEmpty()) {
             categoryNameError.value = ""
-            categoryNameErrorEnable.value=false
+            toastEventChannel.trySend("Select Category image")
+        } else {
+            categoryNameError.value = ""
+            categoryNameErrorEnable.value = false
             submitCategory()
         }
     }
 
     fun submitCategory() {
+        if (categoryId.value==0){
+            insertData()
+            Log.d("TAG","Data is inserted")
+        }
+        else{
+            updateData()
+            Log.d("TAG","Data is updated")
+        }
+    }
+
+    fun insertData() {
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 groceriesDataBase.categoriesDao().insertCategories(
@@ -60,13 +71,30 @@ class AddCategoryViewModel @Inject constructor(private val groceriesDataBase: Ap
                         categoryName = categoryName.value
                     )
                 )
-                categoryName.value=""
-                categoryImage.value=""
+                categoryName.value = ""
+                categoryImage.value = ""
                 submitBtnEventChannel.trySend(Unit)
-
                 toastEventChannel.trySend("Data is inserted Successfully")
             } catch (exception: Exception) {
                 toastEventChannel.trySend("Exception raised while inserting data")
+            }
+        }
+    }
+
+    fun updateData() {
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                groceriesDataBase.categoriesDao().updateCategoryData(
+                    CategoriesEntity(
+                        categoryId = categoryId.value,
+                        categoryImage = categoryImage.value,
+                        categoryName = categoryName.value
+                    )
+                )
+                submitBtnEventChannel.trySend(Unit)
+                toastEventChannel.trySend("Data is Updated")
+            } catch (exception: Exception) {
+                toastEventChannel.trySend("Exception is raised while updating the data")
             }
         }
     }

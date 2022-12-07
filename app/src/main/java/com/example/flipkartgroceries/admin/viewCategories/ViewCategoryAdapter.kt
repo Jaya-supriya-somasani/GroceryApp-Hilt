@@ -14,6 +14,7 @@ class ViewCategoryAdapter(private val editBtnClicked: (CategoriesEntity) -> (Uni
     BaseAdapter<CategoriesEntity>() {
 
     lateinit var binding: ItemCategoriesBinding
+    lateinit var itemPosition:CategoriesEntity
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -25,7 +26,10 @@ class ViewCategoryAdapter(private val editBtnClicked: (CategoriesEntity) -> (Uni
         BaseViewHolder<ItemCategoriesBinding, CategoriesEntity>(binding) {
         override fun onBind(item: CategoriesEntity) {
             binding.editBtn.setOnClickListener {
-                editBtnClicked(getItem(adapterPosition))
+               itemPosition =getItem(adapterPosition)
+                editBtnClicked(itemPosition)
+               val a=getItem(adapterPosition)
+                Log.d("TAG","adapter edit button position $a" )
             }
             try {
                 binding.items = item

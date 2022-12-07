@@ -6,6 +6,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.flipkartgroceries.R
 import com.example.flipkartgroceries.base.BaseFragment
+import com.example.flipkartgroceries.database.CategoriesEntity
 import com.example.flipkartgroceries.databinding.FragmentManageServicesBinding
 import kotlinx.coroutines.flow.collectLatest
 
@@ -23,7 +24,8 @@ class ManageServicesFragment :
         lifecycleScope.launchWhenResumed {
             manageServicesViewModel.addCategoryEvent.collectLatest {
                 val addCategoryAction =
-                    ManageServicesFragmentDirections.actionManageServicesFragmentToAddCategoryFragment()
+                    ManageServicesFragmentDirections.actionManageServicesFragmentToAddCategoryFragment(
+                        CategoriesEntity(0, "", ""))
                 findNavController().navigate(addCategoryAction)
             }
         }

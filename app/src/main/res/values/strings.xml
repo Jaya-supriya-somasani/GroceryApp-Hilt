@@ -31,6 +31,8 @@
     <string name="enter_product_price_tv">Enter Product Price</string>
     <string name="admin_dash_board_tv">Admin Dash Board</string>
     <string name="welcome_to_admin_dash_board_tv">Welcome to admin Dash Board</string>
+    <string name="frequently_bought_tv">Frequently Bought</string>
+    <string name="view_all_tv">View all</string>
 
 
 </resources>

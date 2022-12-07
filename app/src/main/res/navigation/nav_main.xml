@@ -49,6 +49,8 @@
         <action
             android:id="@+id/action_addCategoryFragment_to_viewCategoriesFragment"
             app:destination="@id/viewCategoriesFragment" />
+        <argument android:name="details"
+            app:argType="com.example.flipkartgroceries.database.CategoriesEntity"/>
     </fragment>
     <fragment
         android:id="@+id/viewCategoriesFragment"
