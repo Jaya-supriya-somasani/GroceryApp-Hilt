@@ -11,22 +11,29 @@ import com.example.flipkartgroceries.base.inflate
 import com.example.flipkartgroceries.database.ProductsEntity
 import com.example.flipkartgroceries.databinding.ItemProductsBinding
 
-class ViewProductsAdapter : BaseAdapter<ProductsEntity>() {
+class ViewProductsAdapter(private val editBtnClicked: (ProductsEntity) -> (Unit)) :
+    BaseAdapter<ProductsEntity>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseHolder<ProductsEntity> =
         ViewProductsViewHolder(parent.inflate(R.layout.item_products))
+
+    lateinit var itemPosition: ProductsEntity
 
     inner class ViewProductsViewHolder(binding: ItemProductsBinding) :
         BaseViewHolder<ItemProductsBinding, ProductsEntity>(
             binding
         ) {
         override fun onBind(item: ProductsEntity) {
-            try {
-                binding.item=item
-                Glide.with(binding.root.context).load(item.productImage).placeholder(R.drawable.fruits)
-                    .error(R.drawable.fruits).into(binding.productImageVw)
+            binding.editBtn.setOnClickListener {
+                itemPosition=getItem(adapterPosition)
+                editBtnClicked(itemPosition)
             }
-            catch (e:Exception){
-                Log.d("TAG","Image can't load")
+            try {
+                binding.item = item
+                Glide.with(binding.root.context).load(item.productImage)
+                    .placeholder(R.drawable.fruits)
+                    .error(R.drawable.fruits).into(binding.productImageVw)
+            } catch (e: Exception) {
+                Log.d("TAG", "Image can't load")
             }
         }
     }

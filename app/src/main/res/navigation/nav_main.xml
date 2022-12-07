@@ -72,10 +72,16 @@
         <action
             android:id="@+id/action_addProductsFragment_to_viewProductsFragment"
             app:destination="@id/viewProductsFragment" />
+        <argument android:name="details"
+            app:argType="com.example.flipkartgroceries.database.ProductsEntity"/>
     </fragment>
     <fragment
         android:id="@+id/viewProductsFragment"
         android:name="com.example.flipkartgroceries.admin.viewProducts.ViewProductsFragment"
         android:label="ViewProductsFragment"
-        tools:layout="@layout/fragment_view_products"/>
+        tools:layout="@layout/fragment_view_products">
+        <action
+            android:id="@+id/action_viewProductsFragment_to_addProductsFragment"
+            app:destination="@id/addProductsFragment" />
+    </fragment>
 </navigation>

@@ -123,7 +123,7 @@ class AddProductsViewModel @Inject constructor(private val groceriesDataBase: Ap
                         productPrice = productPrice.value,
                         description = productDescription.value,
                         productImage = selectProductImage.value,
-                        productId=productId.value
+                        productId =productId.value
                     )
                 )
                 categoryType.value=""
