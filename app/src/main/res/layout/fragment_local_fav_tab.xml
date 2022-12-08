@@ -1,14 +1,307 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
             name="viewModel"
             type="com.example.flipkartgroceries.user.local_fav_tab.LocalFavTabViewModel" />
     </data>
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/bannerImg"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:src="@drawable/grocery_store"
+                android:scaleType="fitXY"/>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/riceMoreTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/bannerImg"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="Rice, Dal and more"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:layout_marginStart="@dimen/margin_normal"
+                android:textSize="@dimen/tv_18"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/viewAllBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bannerImg"
+                android:text="View all"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/cobalt_blue"
+                android:layout_marginEnd="@dimen/margin_normal"
+                android:layout_marginTop="@dimen/margin_normal"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/riceDalRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toBottomOf="@id/riceMoreTv"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:layout_marginStart="@dimen/dimen_12"
+                tools:listitem="@layout/item_frequently_bought"
+                tools:itemCount="5"/>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/oilGheeTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/riceDalRecyclerView"
+                android:text="Oil Ghee and more"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:layout_marginStart="@dimen/margin_normal"
+                android:textStyle="bold"
+                android:textSize="@dimen/tv_18"
+                android:textColor="@color/black" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/oilViewAllBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/riceDalRecyclerView"
+                android:text="View all"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/cobalt_blue"
+                android:layout_marginEnd="@dimen/margin_normal"
+                android:layout_marginTop="@dimen/margin_normal"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/oilRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/oilGheeTv"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:layout_marginStart="@dimen/margin_normal"
+                tools:itemCount="6"
+                tools:listitem="@layout/item_frequently_bought"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/storeBannerImg"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_200"
+                android:src="@drawable/supermarket_offer"
+                app:layout_constraintTop_toBottomOf="@id/oilRecyclerView"
+                app:layout_constraintStart_toStartOf="parent"
+                android:scaleType="fitXY"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/ingredientsHeadingTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="Find All Ingredients Only here"
+                app:layout_constraintTop_toBottomOf="@id/storeBannerImg"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textSize="@dimen/tv_18"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:layout_marginStart="@dimen/margin_normal"/>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/ingredientsDescriptionTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cook your Favourite Meals Anywhere"
+                android:textSize="@dimen/tv_14"
+                app:layout_constraintTop_toBottomOf="@id/ingredientsHeadingTv"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginStart="@dimen/margin_normal"/>
+
+            <!-- Image Slider -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/coffeeTeaTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/ingredientsDescriptionTv"
+                android:text="Coffee Tea and more"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:layout_marginStart="@dimen/margin_normal"
+                android:textStyle="bold"
+                android:textSize="@dimen/tv_18"
+                android:textColor="@color/black" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/coffeeViewAllBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ingredientsDescriptionTv"
+                android:text="View all"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/cobalt_blue"
+                android:layout_marginEnd="@dimen/margin_normal"
+                android:layout_marginTop="@dimen/margin_normal"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/coffeeRecyclerVW"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/coffeeViewAllBtn"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:listitem="@layout/item_frequently_bought"
+                tools:itemCount="6"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/offerBannerImg"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_100"
+                app:layout_constraintTop_toBottomOf="@id/coffeeRecyclerVW"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:src="@drawable/offerbanner"
+                android:scaleType="centerCrop"
+                android:layout_marginHorizontal="@dimen/margin_normal"
+                app:shapeAppearanceOverlay="@style/RoundedSquare"
+                android:layout_marginTop="@dimen/margin_normal"/>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/chocolateTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/offerBannerImg"
+                android:text="Chocolate, Snacks and more"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:layout_marginStart="@dimen/margin_normal"
+                android:textStyle="bold"
+                android:textSize="@dimen/tv_18"
+                android:textColor="@color/black" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/chocolateViewAllBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/offerBannerImg"
+                android:text="View all"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/cobalt_blue"
+                android:layout_marginEnd="@dimen/margin_normal"
+                android:layout_marginTop="@dimen/margin_normal"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/chocolateRecyclerVW"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/chocolateViewAllBtn"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:listitem="@layout/item_frequently_bought"
+                tools:itemCount="6"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/instantMixTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/chocolateRecyclerVW"
+                android:text="Instant Mix and more"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:layout_marginStart="@dimen/margin_normal"
+                android:textStyle="bold"
+                android:textSize="@dimen/tv_18"
+                android:textColor="@color/black" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/instantMixViewAllBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/chocolateRecyclerVW"
+                android:text="View all"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/cobalt_blue"
+                android:layout_marginEnd="@dimen/margin_normal"
+                android:layout_marginTop="@dimen/margin_normal"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/instantMixRecyclerVW"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/instantMixViewAllBtn"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:listitem="@layout/item_frequently_bought"
+                tools:itemCount="6"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/vegetablesCardVW"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/grey_500"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:layout_marginHorizontal="@dimen/margin_normal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginBottom="@dimen/margin_normal"
+                app:layout_constraintTop_toBottomOf="@id/instantMixRecyclerVW"
+                app:layout_constraintBottom_toBottomOf="parent">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/groceriesImg"
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:src="@drawable/vegetables"
+                        app:shapeAppearanceOverlay="@style/RoundedSquare"
+                        android:scaleType="centerCrop" />
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/bannerHeadingTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Veggies at 1 rupee only"
+                        app:layout_constraintStart_toEndOf="@id/groceriesImg"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:layout_marginStart="@dimen/margin_small"
+                        android:textSize="@dimen/tv_18"
+                        android:textStyle="bold" />
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/descriptionTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/bannerHeadingTv"
+                        app:layout_constraintStart_toEndOf="@id/groceriesImg"
+                        android:text="Fruits, Veggies, Dairy and More"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/margin_small"
+                        android:layout_marginTop="@dimen/margin_xx_small"/>
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Try Quick"
+                        android:backgroundTint="@color/cobalt_blue"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginEnd="@dimen/margin_small"
+                        android:textAllCaps="false"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 
 </layout>
