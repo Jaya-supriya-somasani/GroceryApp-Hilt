@@ -16,10 +16,12 @@ class HomeTabViewModel @Inject constructor(private val groceriesDataBase: AppDat
     ViewModel() {
     var categoriesDetailsList = MutableStateFlow(listOf<CategoriesEntity>())
     var frequentlyBoughtProductsList = MutableStateFlow(listOf<ProductsEntity>())
+    var categoriesList=MutableStateFlow(listOf<CategoriesEntity>())
 
     init {
         getAllCategoriesDetails()
         getFrequentlyBoughtProducts()
+        getCategoriesList()
     }
 
     private fun getAllCategoriesDetails() {
@@ -31,6 +33,11 @@ class HomeTabViewModel @Inject constructor(private val groceriesDataBase: AppDat
     private fun getFrequentlyBoughtProducts() {
         viewModelScope.launch(Dispatchers.IO) {
             frequentlyBoughtProductsList.value = groceriesDataBase.productsDao().getAllProducts()
+        }
+    }
+    private fun getCategoriesList(){
+        viewModelScope.launch(Dispatchers.IO) {
+            categoriesList.value=groceriesDataBase.categoriesDao().getAllCategories()
         }
     }
 }

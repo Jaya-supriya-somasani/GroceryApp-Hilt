@@ -83,12 +83,26 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="@dimen/dimen_10"
-                    android:layout_marginEnd="5dp"
                     android:text="@string/edit_tv"
+                    android:textAllCaps="false"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/deleteBtn"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/categoryNameTv" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/deleteBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/categoryNameTv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/editBtn"
+                    android:backgroundTint="@color/white"
+                    android:textAllCaps="false"
+                    android:textColor="@color/red"
+                    app:strokeColor="@color/red"
+                    app:strokeWidth="@dimen/dimen_1"
+                    android:layout_marginTop="@dimen/margin_10"
+                    android:text="Delete"/>
 
                 <androidx.constraintlayout.widget.Barrier
                     android:id="@+id/barrier"

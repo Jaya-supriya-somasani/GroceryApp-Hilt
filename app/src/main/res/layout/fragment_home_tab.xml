@@ -188,6 +188,42 @@
                     tools:itemCount="10"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/categoryHeadingTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/frequentlyBoughtLayout"
+                android:text="SHOP BY CATEGORY"
+                android:textColor="@color/purple_500"
+                android:textSize="@dimen/tv_20"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/margin_normal" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/categoryDescTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/categoryHeadingTv"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="Prices So Low, Your Mind Will Blow"
+                android:textSize="@dimen/tv_16"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/categoryItemsRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toBottomOf="@id/categoryDescTv"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="4"
+                android:nestedScrollingEnabled="true"
+                tools:itemCount="24"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:orientation="vertical"
+                tools:listitem="@layout/item_home_categories"
+                />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
