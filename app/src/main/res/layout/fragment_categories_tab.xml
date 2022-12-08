@@ -1,102 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
             name="viewModel"
             type="com.example.flipkartgroceries.user.categories_tab.CategoriesTabViewModel" />
     </data>
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/bannerCardVW"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            app:strokeWidth="1dp"
-            app:strokeColor="@color/grey_500"
-            android:layout_marginTop="@dimen/margin_normal"
-            android:layout_marginHorizontal="@dimen/margin_normal"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/bannerCardVW"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/groceriesImg"
-                    android:layout_width="80dp"
-                    android:layout_height="match_parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:src="@drawable/fresh"
-                    android:scaleType="fitXY" />
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/bannerHeadingTv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Groceries in 45 Mins"
-                    app:layout_constraintStart_toEndOf="@id/groceriesImg"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="@dimen/margin_small"
-                    android:layout_marginStart="@dimen/margin_small"
-                    android:textSize="@dimen/tv_18"
-                    android:textStyle="bold" />
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/descriptionTv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/bannerHeadingTv"
-                    app:layout_constraintStart_toEndOf="@id/groceriesImg"
-                    android:text="Fruits, Veggies, Dairy and More"
-                    android:textColor="@color/black"
-                    android:layout_marginStart="@dimen/margin_small"
-                    android:layout_marginTop="@dimen/margin_xx_small"/>
-                <com.google.android.material.button.MaterialButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Try Quick"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:layout_marginEnd="@dimen/margin_small"
-                    android:textAllCaps="false"/>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </com.google.android.material.card.MaterialCardView>
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/headingTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/bannerCardVW"
-            android:text="SHOP BY CATEGORY"
-            android:textColor="@color/purple_500"
-            android:textSize="@dimen/tv_20"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:textStyle="bold"
-            android:layout_marginTop="@dimen/margin_normal" />
-        <com.google.android.material.textview.MaterialTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/headingTv"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="Prices So Low, Your Mind Will Blow"
-            android:textSize="@dimen/tv_16"/>
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/nutsOfferBannerImg"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_200"
-            android:src="@drawable/nutsbanner"
-            android:scaleType="fitXY"
-            app:shapeAppearance="@style/RoundedSquare"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginHorizontal="@dimen/margin_normal"
-            android:layout_marginVertical="@dimen/margin_normal"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                android:layout_height="80dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/grey_500"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:layout_marginHorizontal="@dimen/margin_normal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/groceriesImg"
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:src="@drawable/fresh"
+                        android:scaleType="fitXY" />
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/bannerHeadingTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/groceries_in_45_mins_tv"
+                        app:layout_constraintStart_toEndOf="@id/groceriesImg"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:layout_marginStart="@dimen/margin_small"
+                        android:textSize="@dimen/tv_18"
+                        android:textStyle="bold" />
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/descriptionTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/bannerHeadingTv"
+                        app:layout_constraintStart_toEndOf="@id/groceriesImg"
+                        android:text="@string/fruits_veggies_dairy_and_more_tv"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/margin_small"
+                        android:layout_marginTop="@dimen/margin_xx_small"/>
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/try_quick_tv"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginEnd="@dimen/margin_small"
+                        android:backgroundTint="@color/cobalt_blue"
+                        android:textAllCaps="false"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/headingTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/bannerCardVW"
+                android:text="@string/shop_by_category_tv"
+                android:textColor="@color/purple_500"
+                android:textSize="@dimen/tv_20"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/margin_normal" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/categoryDescTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/headingTv"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@string/prices_so_low_your_mind_will_blow_tv"
+                android:textSize="@dimen/tv_16"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/categoryRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/categoryDescTv"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="4"
+                tools:itemCount="24"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:orientation="vertical"
+                tools:listitem="@layout/item_home_categories"
+                />
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/nutsOfferBannerImg"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_200"
+                android:src="@drawable/nutsbanner"
+                android:scaleType="fitXY"
+                app:shapeAppearance="@style/RoundedSquare"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/categoryRecyclerView"
+                android:layout_marginHorizontal="@dimen/margin_normal"
+                android:layout_marginVertical="@dimen/margin_normal"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 </layout>

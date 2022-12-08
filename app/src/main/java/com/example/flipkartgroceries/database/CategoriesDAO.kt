@@ -14,6 +14,6 @@ interface CategoriesDAO {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertCategories(category: CategoriesEntity)
 
-    @Update()
+    @Update
     suspend fun updateCategoryData(category: CategoriesEntity)
 }
