@@ -5,26 +5,27 @@ import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.example.flipkartgroceries.R
 import com.example.flipkartgroceries.base.BaseAdapter
-import com.example.flipkartgroceries.base.BaseHolder
 import com.example.flipkartgroceries.base.BaseViewHolder
 import com.example.flipkartgroceries.base.inflate
 import com.example.flipkartgroceries.database.ProductsEntity
 import com.example.flipkartgroceries.databinding.ItemProductsBinding
 
-class ViewProductsAdapter(private val editBtnClicked: (ProductsEntity) -> (Unit)) :
+class ViewProductsAdapter(
+    private val editBtnClicked: (ProductsEntity) -> (Unit)
+) :
     BaseAdapter<ProductsEntity>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseHolder<ProductsEntity> =
-        ViewProductsViewHolder(parent.inflate(R.layout.item_products))
-
+    lateinit var binding: ItemProductsBinding
     lateinit var itemPosition: ProductsEntity
 
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewProductsViewHolder {
+       return ViewProductsViewHolder(parent.inflate(R.layout.item_products))
+    }
     inner class ViewProductsViewHolder(binding: ItemProductsBinding) :
-        BaseViewHolder<ItemProductsBinding, ProductsEntity>(
-            binding
-        ) {
+        BaseViewHolder<ItemProductsBinding, ProductsEntity>(binding) {
+
         override fun onBind(item: ProductsEntity) {
             binding.editBtn.setOnClickListener {
-                itemPosition=getItem(adapterPosition)
+                itemPosition = getItem(adapterPosition)
                 editBtnClicked(itemPosition)
             }
             try {

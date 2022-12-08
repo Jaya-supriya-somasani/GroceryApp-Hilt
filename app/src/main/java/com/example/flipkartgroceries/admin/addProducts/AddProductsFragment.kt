@@ -51,7 +51,7 @@ class AddProductsFragment : BaseFragment<FragmentAddProductsBinding>() {
     override fun setUp() {
         dataBinding.viewModel = addProductsViewModel
         initToolbar()
-
+        addProductsViewModel.productId.value = args.details.productId
         addProductsViewModel.categoryType.value = args.details.categoryName.toString()
         addProductsViewModel.productName.value = args.details.productName.toString()
         addProductsViewModel.productWeight.value = args.details.productWeight.toString()
@@ -95,13 +95,10 @@ class AddProductsFragment : BaseFragment<FragmentAddProductsBinding>() {
 
         lifecycleScope.launchWhenResumed {
             addProductsViewModel.addProductEvent.collectLatest {
-                try {
-                    val action =
-                        AddProductsFragmentDirections.actionAddProductsFragmentToViewProductsFragment()
-                    findNavController().navigate(action)
-                } catch (e: Exception) {
-                    Log.d("TAG", "Unable to load the image")
-                }
+                val action =
+                    AddProductsFragmentDirections.actionAddProductsFragmentToViewProductsFragment()
+                findNavController().navigate(action)
+
             }
         }
         lifecycleScope.launchWhenResumed {

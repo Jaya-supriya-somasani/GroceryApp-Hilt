@@ -33,6 +33,7 @@
     <string name="welcome_to_admin_dash_board_tv">Welcome to admin Dash Board</string>
     <string name="frequently_bought_tv">Frequently Bought</string>
     <string name="view_all_tv">View all</string>
+    <string name="delete_tv">Delete</string>
 
 
 </resources>

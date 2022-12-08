@@ -42,7 +42,7 @@ class ManageServicesFragment :
             manageServicesViewModel.addProductsEvent.collectLatest {
                 val addProductsAction =
                     ManageServicesFragmentDirections.actionManageServicesFragmentToAddProductsFragment(
-                        ProductsEntity(0, null, null, null, null, null, null, null)
+                        ProductsEntity(0, "", "", "", "", "", "", "")
                     )
                 findNavController().navigate(addProductsAction)
             }
