@@ -34,6 +34,23 @@
     <string name="frequently_bought_tv">Frequently Bought</string>
     <string name="view_all_tv">View all</string>
     <string name="delete_tv">Delete</string>
+    <string name="groceries_in_45_mins_tv">Groceries in 45 Mins</string>
+    <string name="fruits_veggies_dairy_and_more_tv">Fruits, Veggies, Dairy and More</string>
+    <string name="try_quick_tv">Try Quick</string>
+    <string name="shop_by_category_tv">SHOP BY CATEGORY</string>
+    <string name="prices_so_low_your_mind_will_blow_tv">Prices So Low, Your Mind Will Blow</string>
+    <string name="rice_dal_and_more_tv">Rice, Dal and more</string>
+    <string name="oil_ghee_and_more_tv">Oil Ghee and more</string>
+    <string name="find_all_ingredients_only_here_tv">Find All Ingredients Only here</string>
+    <string name="cook_your_favourite_meals_anywhere_tv">Cook your Favourite Meals Anywhere</string>
+    <string name="coffee_tea_and_more_tv">Coffee Tea and more</string>
+    <string name="chocolate_snacks_and_more_tv">Chocolate, Snacks and more</string>
+    <string name="instant_mix_and_more_tv">Instant Mix and more</string>
+    <string name="shop_for_800_to_get_steal_deals_tv">Shop for 800 to get Steal Deals</string>
+    <string name="delivery_to_500032_hyderabad_tv">Delivery to 500032, Hyderabad</string>
+    <string name="change_tv">Change</string>
+    <string name="veggies_at_1_rupee_only_tv">Veggies at 1 rupee only</string>
+    <string name="location_tv">Location</string>
 
 
 </resources>

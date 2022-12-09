@@ -24,7 +24,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginHorizontal="@dimen/margin_small"
                 android:layout_marginTop="@dimen/margin_normal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintStart_toStartOf="parent"
@@ -34,7 +33,7 @@
             <View
                 android:id="@+id/dividerTop"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/dimen_1"
                 app:layout_constraintTop_toBottomOf="@id/categoryRecyclerView"
                 android:layout_marginTop="@dimen/margin_normal"
                 android:background="@color/grey_500"/>
@@ -46,6 +45,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:src="@drawable/ic_baseline_location"
                 android:layout_marginStart="@dimen/margin_normal"
+                android:contentDescription="@string/location_tv"
                 android:layout_marginTop="@dimen/margin_normal" />
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/addressTv"
@@ -54,15 +54,15 @@
                 app:layout_constraintTop_toTopOf="@id/locationIcon"
                 app:layout_constraintBottom_toBottomOf="@id/locationIcon"
                 app:layout_constraintStart_toEndOf="@id/locationIcon"
-                android:text="Delivery to 500032, Hyderabad"
+                android:text="@string/delivery_to_500032_hyderabad_tv"
                 android:layout_marginStart="@dimen/margin_normal"
                 android:textColor="@color/black"/>
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/changeAddressBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Change"
-                app:strokeWidth="1dp"
+                android:text="@string/change_tv"
+                app:strokeWidth="@dimen/dimen_1"
                 android:backgroundTint="@color/white"
                 android:textColor="@color/cobalt_blue"
                 app:strokeColor="@color/desert_ash_80"
@@ -75,8 +75,8 @@
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/bannerCardVW"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                app:strokeWidth="1dp"
+                android:layout_height="@dimen/dimen_60"
+                app:strokeWidth="@dimen/dimen_1"
                 app:strokeColor="@color/grey_500"
                 android:layout_marginTop="@dimen/margin_normal"
                 android:layout_marginHorizontal="@dimen/margin_normal"
@@ -88,7 +88,7 @@
                     android:layout_height="match_parent">
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/groceriesImg"
-                        android:layout_width="80dp"
+                        android:layout_width="@dimen/dimen_80"
                         android:layout_height="match_parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
@@ -98,7 +98,7 @@
                         android:id="@+id/headingTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Groceries in 45 Mins"
+                        android:text="@string/groceries_in_45_mins_tv"
                         app:layout_constraintStart_toEndOf="@id/groceriesImg"
                         app:layout_constraintTop_toTopOf="parent"
                         android:textColor="@color/black"
@@ -112,14 +112,14 @@
                         android:layout_height="wrap_content"
                         app:layout_constraintTop_toBottomOf="@id/headingTv"
                         app:layout_constraintStart_toEndOf="@id/groceriesImg"
-                        android:text="Fruits, Veggies, Dairy and More"
+                        android:text="@string/fruits_veggies_dairy_and_more_tv"
                         android:textColor="@color/black"
                         android:layout_marginStart="@dimen/margin_small"
                         android:layout_marginTop="@dimen/margin_xx_small"/>
                     <com.google.android.material.button.MaterialButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Try Quick"
+                        android:text="@string/try_quick_tv"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -131,7 +131,7 @@
                 android:id="@+id/dealsTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Shop for 800 to get Steal Deals"
+                android:text="@string/shop_for_800_to_get_steal_deals_tv"
                 app:layout_constraintTop_toBottomOf="@id/bannerCardVW"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="@dimen/margin_normal"
@@ -193,7 +193,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/frequentlyBoughtLayout"
-                android:text="SHOP BY CATEGORY"
+                android:text="@string/shop_by_category_tv"
                 android:textColor="@color/purple_500"
                 android:textSize="@dimen/tv_20"
                 app:layout_constraintStart_toStartOf="parent"
@@ -207,7 +207,7 @@
                 app:layout_constraintTop_toBottomOf="@id/categoryHeadingTv"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:text="Prices So Low, Your Mind Will Blow"
+                android:text="@string/prices_so_low_your_mind_will_blow_tv"
                 android:textSize="@dimen/tv_16"/>
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/categoryItemsRecyclerView"

@@ -8,17 +8,19 @@
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="60dp"
+        android:layout_width="@dimen/dimen_60"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/margin_small">
+        android:layout_marginHorizontal="@dimen/margin_small"
+        android:layout_marginVertical="@dimen/margin_x_small">
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/category_img"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="@dimen/dimen_60"
+            android:layout_height="@dimen/dimen_60"
             app:shapeAppearance="@style/CircleShape"
             android:scaleType="fitXY"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             tools:src="@drawable/shopping"/>
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
@@ -28,6 +30,10 @@
             app:layout_constraintTop_toBottomOf="@id/category_img"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="@dimen/margin_xx_small"
+            android:maxLines="2"
+            android:textSize="@dimen/tv_14"
+            android:ellipsize="end"
+            android:textAlignment="center"
             android:textColor="@color/black"
             />
 
