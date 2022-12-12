@@ -26,8 +26,8 @@ class HomeTabCategoryListAdapter : BaseAdapter<CategoriesEntity>() {
                 Glide.with(binding.categoryImg.context).load(item.categoryImage).centerCrop()
                     .placeholder(R.drawable.fresh).error(R.drawable.fresh).into(binding.categoryImg)
             }
-            catch (exception:Exception){
-                Log.d("TAG","Exception raised while loading image")
+            catch (exception: Exception) {
+                Log.d("TAG", "Exception raised while loading image")
             }
         }
     }

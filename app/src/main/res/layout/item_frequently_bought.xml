@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
             name="items"
             type="com.example.flipkartgroceries.database.ProductsEntity" />
     </data>
 <com.google.android.material.card.MaterialCardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="@dimen/dimen_200"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="@dimen/margin_x_small"
@@ -72,6 +72,7 @@
             android:textStyle="bold"
             android:textSize="@dimen/tv_16"/>
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/addCardView"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/dimen_30"
             app:layout_constraintTop_toBottomOf="@id/currentPriceTv"
@@ -81,9 +82,12 @@
             android:layout_marginHorizontal="@dimen/margin_small"
             android:layout_marginTop="@dimen/margin_normal"
             android:layout_marginBottom="@dimen/margin_normal"
+            android:visibility="visible"
             app:strokeWidth="1dp"
+            android:clickable="true"
             app:layout_constraintEnd_toEndOf="parent">
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/item_quantity_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <com.google.android.material.textview.MaterialTextView
@@ -117,6 +121,42 @@
                     app:layout_constraintBottom_toBottomOf="parent"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/decrement_quantityVw"
+            android:layout_width="@dimen/dimen_24"
+            android:layout_height="@dimen/dimen_24"
+            app:layout_constraintTop_toTopOf="@id/quantity_val"
+            app:layout_constraintEnd_toStartOf="@id/quantity_val"
+            app:layout_constraintBottom_toBottomOf="@id/quantity_val"
+            android:layout_marginEnd="@dimen/dimen_10"
+            android:src="@drawable/ic_baseline_decrement"
+            app:shapeAppearanceOverlay="@style/RoundedSquare"
+            android:clickable="true"
+            android:background="@color/cobalt_blue"
+        />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/quantity_val"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/addCardView"
+            app:layout_constraintBottom_toBottomOf="@id/addCardView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginVertical="@dimen/margin_normal"
+            android:text="1"/>
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/increment_quantityVw"
+            android:layout_width="@dimen/dimen_24"
+            android:layout_height="@dimen/dimen_24"
+            android:src="@drawable/ic_baseline_increment"
+            app:shapeAppearanceOverlay="@style/RoundedSquare"
+            android:clickable="true"
+            android:layout_marginStart="@dimen/dimen_10"
+            app:layout_constraintStart_toEndOf="@id/quantity_val"
+            android:background="@color/cobalt_blue"
+            app:layout_constraintTop_toTopOf="@id/quantity_val"
+            app:layout_constraintBottom_toBottomOf="@id/quantity_val"
+             />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>
 </layout>

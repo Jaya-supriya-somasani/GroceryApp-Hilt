@@ -16,4 +16,6 @@ interface CategoriesDAO {
 
     @Update
     suspend fun updateCategoryData(category: CategoriesEntity)
+
+//    @Query("Select * from categoriesentity where ")
 }
