@@ -14,4 +14,7 @@ interface ProductsDao {
 
     @Update
     fun updateProductDetails(product:ProductsEntity)
+
+    @Query("Select * from productsentity where category_name= :category_type ")
+    fun getSpecificCategoryProducts(category_type:String):List<ProductsEntity>
 }
