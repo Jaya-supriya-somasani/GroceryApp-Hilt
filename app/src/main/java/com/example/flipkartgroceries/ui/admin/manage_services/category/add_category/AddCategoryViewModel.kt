@@ -20,8 +20,8 @@ class AddCategoryViewModel @Inject constructor(private val groceriesDataBase: Ap
     val selectImageEvent = selectImageEventChannel.receiveAsFlow()
 
     val categoryId = MutableStateFlow(0)
-    val categoryImage = MutableStateFlow("")
-    val categoryName = MutableStateFlow("")
+    val categoryImage = MutableStateFlow<String?>("")
+    val categoryName = MutableStateFlow<String?>("")
     val categoryNameError = MutableStateFlow("")
     val categoryNameErrorEnable = MutableStateFlow(false)
 
@@ -37,10 +37,10 @@ class AddCategoryViewModel @Inject constructor(private val groceriesDataBase: Ap
     }
 
     fun addCategoryValidation() {
-        if (categoryName.value.isEmpty()) {
+        if (categoryName.value.isNullOrEmpty()) {
             categoryNameError.value = "Enter Category Name"
             categoryNameErrorEnable.value = true
-        } else if (categoryImage.value.isEmpty()) {
+        } else if (categoryImage.value.isNullOrEmpty()) {
             categoryNameError.value = ""
             toastEventChannel.trySend("Select Category image")
         } else {
@@ -50,7 +50,7 @@ class AddCategoryViewModel @Inject constructor(private val groceriesDataBase: Ap
         }
     }
 
-    fun submitCategory() {
+    private fun submitCategory() {
         if (categoryId.value==0){
             insertData()
             Log.d("TAG","Data is inserted")
@@ -61,7 +61,7 @@ class AddCategoryViewModel @Inject constructor(private val groceriesDataBase: Ap
         }
     }
 
-    fun insertData() {
+   private fun insertData() {
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 groceriesDataBase.categoriesDao().insertCategories(
@@ -81,7 +81,7 @@ class AddCategoryViewModel @Inject constructor(private val groceriesDataBase: Ap
         }
     }
 
-    fun updateData() {
+   private fun updateData() {
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 groceriesDataBase.categoriesDao().updateCategoryData(
