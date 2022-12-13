@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.flipkartgroceries.user.tabs.fast_delivery.FastDeliveryViewModel" />
+            type="com.example.flipkartgroceries.ui.user.tabs.fast_delivery.FastDeliveryViewModel" />
     </data>
 <androidx.core.widget.NestedScrollView
     android:layout_width="match_parent"
@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_normal"
-            android:text="Free Delivery Above 99"
+            android:text="@string/free_delivery_tv"
             android:textColor="@color/black"
             android:textSize="@dimen/tv_18"
             android:textStyle="bold"
@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_normal"
             android:layout_marginTop="@dimen/margin_normal"
-            android:text="Limited Time Deals"
+            android:text="@string/limited_time_deals_tv"
             android:textColor="@color/black"
             android:textSize="@dimen/tv_16"
             android:textStyle="bold"
@@ -58,7 +58,7 @@
             android:layout_marginTop="@dimen/margin_small"
             android:layout_marginEnd="@dimen/margin_small"
             android:backgroundTint="@color/cobalt_blue"
-            android:text="View all"
+            android:text="@string/view_all_tv"
             android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/categories_recycler_vw" />
@@ -84,7 +84,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_normal"
             android:layout_marginTop="@dimen/margin_normal"
-            android:text="Grab Tomato 1 Kg at 1/- *"
+            android:text="@string/grab_tomato_tv"
             android:textColor="@color/black"
             android:textSize="@dimen/tv_18"
             app:layout_constraintStart_toStartOf="parent"
@@ -95,7 +95,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_small"
-            android:text="Offer will reflect at checkout"
+            android:text="@string/offer_description"
             android:textSize="@dimen/tv_14"
             app:layout_constraintStart_toStartOf="@id/grab_offer_heading"
             app:layout_constraintTop_toBottomOf="@id/grab_offer_heading" />

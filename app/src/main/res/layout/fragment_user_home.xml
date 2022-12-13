@@ -5,7 +5,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.flipkartgroceries.user.UserHomeViewModel" />
+            type="com.example.flipkartgroceries.ui.user.UserHomeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,7 +20,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/groceriesBtn"
-            android:text="Flipkart"
+            android:text="@string/flipkart_tv"
             android:textColor="@color/black"
             android:textStyle="italic|bold"
             android:textAllCaps="false"
@@ -54,7 +54,7 @@
             app:iconTint="@null"
             app:iconPadding="0dp"
             app:iconGravity="textStart"
-            android:text="Grocery"/>
+            android:text="@string/grocery_tv"/>
         <SearchView
             android:id="@+id/grocerySearch"
             android:layout_width="match_parent"

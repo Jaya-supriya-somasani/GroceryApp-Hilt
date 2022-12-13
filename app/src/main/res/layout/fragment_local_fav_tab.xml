@@ -5,7 +5,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.flipkartgroceries.user.tabs.local_favourite.LocalFavouriteViewModel" />
+            type="com.example.flipkartgroceries.ui.user.tabs.local_favourite.LocalFavouriteViewModel" />
     </data>
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"

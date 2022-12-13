@@ -5,7 +5,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.flipkartgroceries.admin.home.AdminHomeViewModel" />
+            type="com.example.flipkartgroceries.ui.admin.AdminHomeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -19,6 +19,7 @@
             android:layout_height="@dimen/dimen_200"
             android:layout_marginTop="@dimen/dimen_48"
             android:scaleType="fitCenter"
+            android:contentDescription="@string/admin_image_tv"
             android:src="@drawable/admin_dashboard"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -60,7 +61,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/margin_small"
                     android:layout_marginTop="@dimen/margin_normal"
-                    android:text="To access the products details , categories detail click here"
+                    android:text="@string/manage_services_des_tv"
                     android:textColor="@color/black"
                     android:textSize="@dimen/tv_16"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -105,7 +106,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/margin_small"
                     android:layout_marginTop="@dimen/margin_normal"
-                    android:text="To Access the User Categories and products data, click here"
+                    android:text="@string/categories_description_tv"
                     android:textColor="@color/black"
                     android:textSize="@dimen/tv_16"
                     app:layout_constraintEnd_toEndOf="parent"
