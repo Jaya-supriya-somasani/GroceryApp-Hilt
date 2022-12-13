@@ -20,12 +20,7 @@ class ImageSliderAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageViewHolder {
-        binding = DataBindingUtil.inflate(
-            LayoutInflater.from(parent.context),
-            R.layout.image_slider,
-            parent,
-            false
-        )
+        binding = ImageSliderBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ImageViewHolder(binding)
     }
 

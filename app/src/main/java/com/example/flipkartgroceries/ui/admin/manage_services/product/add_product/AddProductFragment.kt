@@ -52,13 +52,13 @@ class AddProductFragment : BaseFragment<FragmentAddProductsBinding>() {
         dataBinding.viewModel = addProductsViewModel
         initToolbar()
         addProductsViewModel.productId.value = args.details.productId
-        addProductsViewModel.categoryType.value = args.details.categoryName.toString()
-        addProductsViewModel.productName.value = args.details.productName.toString()
-        addProductsViewModel.productWeight.value = args.details.productWeight.toString()
-        addProductsViewModel.productMRP.value = args.details.productMRP.toString()
-        addProductsViewModel.productPrice.value = args.details.productPrice.toString()
-        addProductsViewModel.productDescription.value = args.details.description.toString()
-        addProductsViewModel.selectProductImage.value = args.details.productImage.toString()
+        addProductsViewModel.categoryType.value = args.details.categoryName
+        addProductsViewModel.productName.value = args.details.productName
+        addProductsViewModel.productWeight.value = args.details.productWeight
+        addProductsViewModel.productMRP.value = args.details.productMRP
+        addProductsViewModel.productPrice.value = args.details.productPrice
+        addProductsViewModel.productDescription.value = args.details.description
+        addProductsViewModel.selectProductImage.value = args.details.productImage
 
         lifecycleScope.launchWhenResumed {
             addProductsViewModel.selectImageEvent.collectLatest {

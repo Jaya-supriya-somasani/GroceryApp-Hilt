@@ -26,7 +26,7 @@ class ManageServiceFragment :
             manageServiceViewModel.addCategoryEvent.collectLatest {
                 val addCategoryAction =
                     ManageServiceFragmentDirections.actionManageServicesFragmentToAddCategoryFragment(
-                        CategoryEntity(0, "", "")
+                        CategoryEntity(0, null, null)
                     )
                 findNavController().navigate(addCategoryAction)
             }
@@ -42,7 +42,7 @@ class ManageServiceFragment :
             manageServiceViewModel.addProductsEvent.collectLatest {
                 val addProductsAction =
                     ManageServiceFragmentDirections.actionManageServicesFragmentToAddProductsFragment(
-                        ProductEntity(0, "", "", "", "", "", "", "")
+                        ProductEntity(0, null, null, null, null, null, null, null)
                     )
                 findNavController().navigate(addProductsAction)
             }

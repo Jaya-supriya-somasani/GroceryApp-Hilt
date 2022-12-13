@@ -44,6 +44,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/tv_20"
                 android:textStyle="bold"
+                android:visibility="gone"
                 android:layout_marginTop="@dimen/margin_small"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

@@ -17,13 +17,13 @@ import javax.inject.Inject
 class AddProductViewModel @Inject constructor(private val groceriesDataBase: AppDatabase) : ViewModel() {
     private val addProductEventChannel = Channel<Unit>()
     val addProductEvent = addProductEventChannel.receiveAsFlow()
-    val categoryType = MutableStateFlow("")
-    val productName = MutableStateFlow("")
-    val productWeight = MutableStateFlow("")
-    val productMRP = MutableStateFlow("")
-    val productPrice = MutableStateFlow("")
-    val productDescription = MutableStateFlow("")
-    val selectProductImage = MutableStateFlow("")
+    val categoryType = MutableStateFlow<String?>("")
+    val productName = MutableStateFlow<String?>("")
+    val productWeight = MutableStateFlow<String?>("")
+    val productMRP = MutableStateFlow<String?>("")
+    val productPrice = MutableStateFlow<String?>("")
+    val productDescription = MutableStateFlow<String?>("")
+    val selectProductImage = MutableStateFlow<String?>("")
     val productId = MutableStateFlow(0)
     val categoryTypeError = MutableStateFlow("")
     val categoryErrorEnable = MutableStateFlow(false)
@@ -49,42 +49,42 @@ class AddProductViewModel @Inject constructor(private val groceriesDataBase: App
     }
 
     fun productsValidation() {
-        if (categoryType.value.isEmpty()) {
+        if (categoryType.value.isNullOrEmpty()) {
             categoryErrorEnable.value = true
             categoryTypeError.value = "Enter Category type"
             productNameError.value = ""
             productWeightError.value = ""
             productMrpError.value = ""
             productPriceError.value = ""
-        } else if (productName.value.isEmpty()) {
+        } else if (productName.value.isNullOrEmpty()) {
             productNameErrorEnable.value = true
             productNameError.value = "Enter product name"
             categoryTypeError.value = ""
             productWeightError.value = ""
             productMrpError.value = ""
             productPriceError.value = ""
-        } else if (productWeight.value.isEmpty()) {
+        } else if (productWeight.value.isNullOrEmpty()) {
             productWeightErrorEnable.value = true
             productWeightError.value = "Enter product Weight"
             productNameError.value = ""
             productMrpError.value = ""
             categoryTypeError.value = ""
             productPriceError.value = ""
-        } else if (productMRP.value.isEmpty()) {
+        } else if (productMRP.value.isNullOrEmpty()) {
             productMRPErrorEnable.value = true
             productMrpError.value = "Enter product MRP"
             productNameError.value = ""
             productWeightError.value = ""
             categoryTypeError.value = ""
             productPriceError.value = ""
-        } else if (productPrice.value.isEmpty()) {
+        } else if (productPrice.value.isNullOrEmpty()) {
             productPriceErrorEnable.value = true
             productPriceError.value = "Enter product Price"
             productNameError.value = ""
             productWeightError.value = ""
             productMrpError.value = ""
             categoryTypeError.value = ""
-        } else if (selectProductImage.value.isEmpty()) {
+        } else if (selectProductImage.value.isNullOrEmpty()) {
             productImageError.value = "Select product image"
             productNameError.value = ""
             productWeightError.value = ""

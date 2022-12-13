@@ -53,6 +53,15 @@
     <string name="location_tv">Location</string>
     <string name="one">1</string>
     <string name="add_tv">Add</string>
+    <string name="manage_services_des_tv">To access the products details , categories detail click here</string>
+    <string name="categories_description_tv">To Access the User Categories and products data, click here</string>
+    <string name="grocery_tv">Grocery</string>
+    <string name="flipkart_tv">Flipkart</string>
+    <string name="free_delivery_tv">Free Delivery Above 99</string>
+    <string name="limited_time_deals_tv">Limited Time Deals</string>
+    <string name="grab_tomato_tv">Grab Tomato 1 Kg at 1/- *</string>
+    <string name="offer_description">Offer will reflect at checkout</string>
+    <string name="admin_image_tv">Admin Image</string>
 
 
 </resources>

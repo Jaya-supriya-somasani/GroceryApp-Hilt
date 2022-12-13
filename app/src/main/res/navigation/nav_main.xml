@@ -59,10 +59,12 @@
         tools:layout="@layout/fragment_view_categories">
         <action
             android:id="@+id/action_view_categories_fragment_to_add_category_fragment"
-            app:destination="@id/add_category_fragment" />
+            app:destination="@id/add_category_fragment"
+            app:popUpToInclusive="true"/>
         <action
             android:id="@+id/action_view_categories_fragment_to_manage_services_fragment"
-            app:destination="@id/manage_services_fragment" />
+            app:destination="@id/manage_services_fragment"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/add_products_fragment"
@@ -82,6 +84,7 @@
         tools:layout="@layout/fragment_view_products">
         <action
             android:id="@+id/action_view_products_fragment_to_add_products_fragment"
-            app:destination="@id/add_products_fragment" />
+            app:destination="@id/add_products_fragment"
+            app:popUpToInclusive="true"/>
     </fragment>
 </navigation>
