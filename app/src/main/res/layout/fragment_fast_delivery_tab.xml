@@ -1,13 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <data>
         <variable
             name="viewModel"
             type="com.example.flipkartgroceries.user.fast_delivery_tab.FastDeliveryTabViewModel" />
     </data>
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/headingTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_normal"
+            android:text="Free Delivery Above 99"
+            android:textColor="@color/black"
+            android:textSize="@dimen/tv_18"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/categories_recycler_vw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/headingTv"
+            tools:listitem="@layout/item_home_categories" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/limited_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_normal"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:text="Limited Time Deals"
+            android:textColor="@color/black"
+            android:textSize="@dimen/tv_16"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/categories_recycler_vw" />
+
+        <Button
+            android:id="@+id/view_all_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:layout_marginEnd="@dimen/margin_small"
+            android:backgroundTint="@color/cobalt_blue"
+            android:text="View all"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/categories_recycler_vw" />
+
+        <View
+            android:id="@+id/top_divider_vw"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:background="@color/grey_500"
+            app:layout_constraintTop_toBottomOf="@id/view_all_btn" />
+
+        <include
+            android:id="@+id/limited_deal_layout"
+            layout="@layout/item_limited_deals"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/top_divider_vw" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/grab_offer_heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_normal"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:text="Grab Tomato 1 Kg at 1/- *"
+            android:textColor="@color/black"
+            android:textSize="@dimen/tv_18"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/limited_deal_layout" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/grab_offer_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:text="Offer will reflect at checkout"
+            android:textSize="@dimen/tv_14"
+            app:layout_constraintStart_toStartOf="@id/grab_offer_heading"
+            app:layout_constraintTop_toBottomOf="@id/grab_offer_heading" />
+
+        <View
+            android:id="@+id/grab_offer_divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/margin_small"
+            android:background="@color/grey_500"
+            app:layout_constraintTop_toBottomOf="@id/grab_offer_description" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/image_slider_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_normal"
+            app:layout_constraintTop_toBottomOf="@id/grab_offer_divider" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
 </layout>
