@@ -3,7 +3,7 @@
 <data>
     <variable
         name="items"
-        type="com.example.flipkartgroceries.database.CategoriesEntity" />
+        type="com.example.flipkartgroceries.database.CategoryEntity" />
 </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -102,7 +102,7 @@
                     app:strokeColor="@color/red"
                     app:strokeWidth="@dimen/dimen_1"
                     android:layout_marginTop="@dimen/margin_10"
-                    android:text="Delete"/>
+                    android:text="@string/delete_tv"/>
 
                 <androidx.constraintlayout.widget.Barrier
                     android:id="@+id/barrier"

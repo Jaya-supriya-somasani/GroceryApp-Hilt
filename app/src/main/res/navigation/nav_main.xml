@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/manageServicesFragment"
-        android:name="com.example.flipkartgroceries.admin.manageServices.ManageServicesFragment"
+        android:name="com.example.flipkartgroceries.admin.manage_services.ManageServiceFragment"
         android:label="fragment_manage_services"
         tools:layout="@layout/fragment_manage_services" >
         <action
@@ -43,18 +43,18 @@
         tools:layout="@layout/fragment_user_home" />
     <fragment
         android:id="@+id/addCategoryFragment"
-        android:name="com.example.flipkartgroceries.admin.addCategory.AddCategoryFragment"
+        android:name="com.example.flipkartgroceries.admin.add_category.AddCategoryFragment"
         android:label="AddCategoryFragment"
         tools:layout="@layout/fragment_add_category">
         <action
             android:id="@+id/action_addCategoryFragment_to_viewCategoriesFragment"
             app:destination="@id/viewCategoriesFragment" />
         <argument android:name="details"
-            app:argType="com.example.flipkartgroceries.database.CategoriesEntity"/>
+            app:argType="com.example.flipkartgroceries.database.CategoryEntity"/>
     </fragment>
     <fragment
         android:id="@+id/viewCategoriesFragment"
-        android:name="com.example.flipkartgroceries.admin.viewCategories.ViewCategoriesFragment"
+        android:name="com.example.flipkartgroceries.admin.view_categories.ViewCategoriesFragment"
         android:label="ViewCategoriesFragment"
         tools:layout="@layout/fragment_view_categories">
         <action
@@ -66,18 +66,18 @@
     </fragment>
     <fragment
         android:id="@+id/addProductsFragment"
-        android:name="com.example.flipkartgroceries.admin.addProducts.AddProductsFragment"
+        android:name="com.example.flipkartgroceries.admin.add_products.AddProductsFragment"
         android:label="AddProductsFragment"
         tools:layout="@layout/fragment_add_products">
         <action
             android:id="@+id/action_addProductsFragment_to_viewProductsFragment"
             app:destination="@id/viewProductsFragment" />
         <argument android:name="details"
-            app:argType="com.example.flipkartgroceries.database.ProductsEntity"/>
+            app:argType="com.example.flipkartgroceries.database.ProductEntity"/>
     </fragment>
     <fragment
         android:id="@+id/viewProductsFragment"
-        android:name="com.example.flipkartgroceries.admin.viewProducts.ViewProductsFragment"
+        android:name="com.example.flipkartgroceries.admin.view_products.ViewProductsFragment"
         android:label="ViewProductsFragment"
         tools:layout="@layout/fragment_view_products">
         <action

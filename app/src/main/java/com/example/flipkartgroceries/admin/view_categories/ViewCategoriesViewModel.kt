@@ -1,9 +1,9 @@
-package com.example.flipkartgroceries.admin.viewProducts
+package com.example.flipkartgroceries.admin.view_categories
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.flipkartgroceries.database.AppDataBase
-import com.example.flipkartgroceries.database.ProductsEntity
+import com.example.flipkartgroceries.database.CategoryEntity
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -11,14 +11,16 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ViewProductsViewModel @Inject constructor(private val groceries: AppDataBase) : ViewModel() {
-    var productsList=MutableStateFlow(listOf<ProductsEntity>())
+class ViewCategoriesViewModel @Inject constructor(private val groceries: AppDataBase) :
+    ViewModel() {
+    var list= MutableStateFlow(listOf<CategoryEntity>())
+
     init {
-        getProducts()
+        getCategoriesData()
     }
-    private fun getProducts(){
+    fun getCategoriesData() {
         viewModelScope.launch(Dispatchers.IO) {
-            productsList.value=groceries.productsDao().getAllProducts()
+            list.value = groceries.categoriesDao().getAllCategories()
         }
     }
 }

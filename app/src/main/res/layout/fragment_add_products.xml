@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.flipkartgroceries.admin.addProducts.AddProductsViewModel" />
+            type="com.example.flipkartgroceries.admin.add_products.AddProductsViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout

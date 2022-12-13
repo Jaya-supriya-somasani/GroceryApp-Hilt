@@ -14,7 +14,7 @@ class LocalFavTabFragment : BaseFragment<FragmentLocalFavTabBinding>() {
     override fun getLayoutResource() = R.layout.fragment_local_fav_tab
     private val localFavTabViewModel: LocalFavTabViewModel by viewModels()
     val adapter= HomeFrequentlyBoughtAdapter()
-    val riceProductAdapter=RiceProductAdapter()
+    val riceProductAdapter= RiceProductAdapter()
     override fun setUp() {
         dataBinding.viewModel = localFavTabViewModel
         dataBinding.riceDalRecyclerView.adapter=riceProductAdapter

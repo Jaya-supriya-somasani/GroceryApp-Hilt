@@ -1,10 +1,10 @@
-package com.example.flipkartgroceries.admin.manageServices
+package com.example.flipkartgroceries.admin.manage_services
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
 
-class ManageServicesViewModel : ViewModel() {
+class ManageServiceViewModel : ViewModel() {
     private val addCategoryEventChannel = Channel<Unit>()
     val addCategoryEvent = addCategoryEventChannel.receiveAsFlow()
 

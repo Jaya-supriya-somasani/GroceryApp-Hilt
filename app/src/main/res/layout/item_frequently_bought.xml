@@ -4,7 +4,7 @@
     <data>
         <variable
             name="items"
-            type="com.example.flipkartgroceries.database.ProductsEntity" />
+            type="com.example.flipkartgroceries.database.ProductEntity" />
     </data>
 <com.google.android.material.card.MaterialCardView
     android:layout_width="@dimen/dimen_200"
@@ -100,7 +100,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     android:textColor="@color/cobalt_blue"
                     android:layout_marginHorizontal="@dimen/margin_normal"
-                    android:text="Add"/>
+                    android:text="@string/add_tv"/>
                 <View
                     android:id="@+id/verticalDivider"
                     android:layout_width="1dp"
@@ -143,7 +143,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginVertical="@dimen/margin_normal"
-            android:text="1"/>
+            android:text="@string/one"/>
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/increment_quantityVw"
             android:layout_width="@dimen/dimen_24"

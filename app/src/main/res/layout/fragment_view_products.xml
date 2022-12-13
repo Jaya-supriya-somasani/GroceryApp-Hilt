@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.flipkartgroceries.admin.viewProducts.ViewProductsViewModel" />
+            type="com.example.flipkartgroceries.admin.view_products.ViewProductsViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -34,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
-            tools:context=".admin.viewProducts.ViewProductsFragment">
+            tools:context=".admin.view_products.ViewProductsFragment">
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/viewProductsTv"

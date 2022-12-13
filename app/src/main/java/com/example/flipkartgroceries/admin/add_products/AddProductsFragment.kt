@@ -1,4 +1,4 @@
-package com.example.flipkartgroceries.admin.addProducts
+package com.example.flipkartgroceries.admin.add_products
 
 import android.app.Activity
 import android.content.ContentValues.TAG

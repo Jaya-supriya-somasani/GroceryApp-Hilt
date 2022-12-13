@@ -3,8 +3,8 @@ package com.example.flipkartgroceries.user.home_tab
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.flipkartgroceries.database.AppDataBase
-import com.example.flipkartgroceries.database.CategoriesEntity
-import com.example.flipkartgroceries.database.ProductsEntity
+import com.example.flipkartgroceries.database.CategoryEntity
+import com.example.flipkartgroceries.database.ProductEntity
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
@@ -16,9 +16,9 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeTabViewModel @Inject constructor(private val groceriesDataBase: AppDataBase) :
     ViewModel() {
-    var categoriesDetailsList = MutableStateFlow(listOf<CategoriesEntity>())
-    var frequentlyBoughtProductsList = MutableStateFlow(listOf<ProductsEntity>())
-    var categoriesList = MutableStateFlow(listOf<CategoriesEntity>())
+    var categoriesDetailsList = MutableStateFlow(listOf<CategoryEntity>())
+    var frequentlyBoughtProductsList = MutableStateFlow(listOf<ProductEntity>())
+    var categoriesList = MutableStateFlow(listOf<CategoryEntity>())
     val quickBtnEventChannel=Channel<Unit>()
     val quickBtnEvent=quickBtnEventChannel.receiveAsFlow()
     init {

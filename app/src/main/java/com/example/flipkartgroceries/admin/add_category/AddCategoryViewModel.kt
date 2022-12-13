@@ -1,10 +1,10 @@
-package com.example.flipkartgroceries.admin.addCategory
+package com.example.flipkartgroceries.admin.add_category
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.flipkartgroceries.database.AppDataBase
-import com.example.flipkartgroceries.database.CategoriesEntity
+import com.example.flipkartgroceries.database.CategoryEntity
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
@@ -65,7 +65,7 @@ class AddCategoryViewModel @Inject constructor(private val groceriesDataBase: Ap
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 groceriesDataBase.categoriesDao().insertCategories(
-                    CategoriesEntity(
+                    CategoryEntity(
                         categoryId = categoryId.value,
                         categoryImage = categoryImage.value,
                         categoryName = categoryName.value
@@ -85,7 +85,7 @@ class AddCategoryViewModel @Inject constructor(private val groceriesDataBase: Ap
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 groceriesDataBase.categoriesDao().updateCategoryData(
-                    CategoriesEntity(
+                    CategoryEntity(
                         categoryId = categoryId.value,
                         categoryImage = categoryImage.value,
                         categoryName = categoryName.value

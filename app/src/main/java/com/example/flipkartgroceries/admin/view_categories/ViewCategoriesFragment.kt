@@ -1,11 +1,11 @@
-package com.example.flipkartgroceries.admin.viewCategories
+package com.example.flipkartgroceries.admin.view_categories
 
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.flipkartgroceries.R
 import com.example.flipkartgroceries.base.BaseFragment
-import com.example.flipkartgroceries.database.CategoriesEntity
+import com.example.flipkartgroceries.database.CategoryEntity
 import com.example.flipkartgroceries.databinding.FragmentViewCategoriesBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -36,13 +36,10 @@ class ViewCategoriesFragment :
             findNavController().popBackStack()
         }
     }
-    private fun editBtnClicked(item: CategoriesEntity) {
-        val categoryN = adapter.itemPosition.categoryName
-        val categoryImg = adapter.itemPosition.categoryName
-        val categoryId = adapter.itemPosition.categoryId
+    private fun editBtnClicked(item: CategoryEntity) {
         val action =
             ViewCategoriesFragmentDirections.actionViewCategoriesFragmentToAddCategoryFragment(
-                CategoriesEntity(categoryId, categoryImg, categoryN))
+                CategoryEntity(item.categoryId, item.categoryImage, item.categoryName))
         findNavController().navigate(action)
     }
 }

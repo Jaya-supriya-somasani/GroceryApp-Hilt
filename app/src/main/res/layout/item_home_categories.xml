@@ -4,7 +4,7 @@
     <data>
         <variable
             name="item"
-            type="com.example.flipkartgroceries.database.CategoriesEntity" />
+            type="com.example.flipkartgroceries.database.CategoryEntity" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"

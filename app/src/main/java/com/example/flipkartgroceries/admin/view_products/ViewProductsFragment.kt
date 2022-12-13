@@ -1,11 +1,11 @@
-package com.example.flipkartgroceries.admin.viewProducts
+package com.example.flipkartgroceries.admin.view_products
 
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.flipkartgroceries.R
 import com.example.flipkartgroceries.base.BaseFragment
-import com.example.flipkartgroceries.database.ProductsEntity
+import com.example.flipkartgroceries.database.ProductEntity
 import com.example.flipkartgroceries.databinding.FragmentViewProductsBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -35,25 +35,17 @@ class ViewProductsFragment : BaseFragment<FragmentViewProductsBinding>() {
         }
     }
 
-    private fun editButtonClicked(item: ProductsEntity) {
-        val productId = adapter.itemPosition.productId
-        val categoryName = adapter.itemPosition.categoryName
-        val productName = adapter.itemPosition.productName
-        val productWeight = adapter.itemPosition.productWeight
-        val productMRP = adapter.itemPosition.productMRP
-        val productPrice = adapter.itemPosition.productPrice
-        val description = adapter.itemPosition.description
-        val productImg = adapter.itemPosition.productImage
+    private fun editButtonClicked(item: ProductEntity) {
         val action = ViewProductsFragmentDirections.actionViewProductsFragmentToAddProductsFragment(
-            ProductsEntity(
-                productId = productId,
-                categoryName = categoryName,
-                productName = productName,
-                productWeight = productWeight,
-                productMRP = productMRP,
-                productPrice = productPrice,
-                description = description,
-                productImage = productImg
+            ProductEntity(
+                productId = item.productId,
+                categoryName = item.categoryName,
+                productName = item.productName,
+                productWeight = item.productWeight,
+                productMRP = item.productMRP,
+                productPrice = item.productPrice,
+                description = item.description,
+                productImage = item.productImage
             )
         )
         findNavController().navigate(action)

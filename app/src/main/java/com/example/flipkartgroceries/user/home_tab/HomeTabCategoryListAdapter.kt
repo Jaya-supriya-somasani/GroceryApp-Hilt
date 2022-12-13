@@ -7,10 +7,10 @@ import com.example.flipkartgroceries.R
 import com.example.flipkartgroceries.base.BaseAdapter
 import com.example.flipkartgroceries.base.BaseViewHolder
 import com.example.flipkartgroceries.base.inflate
-import com.example.flipkartgroceries.database.CategoriesEntity
+import com.example.flipkartgroceries.database.CategoryEntity
 import com.example.flipkartgroceries.databinding.ItemHomeCategoriesBinding
 
-class HomeTabCategoryListAdapter : BaseAdapter<CategoriesEntity>() {
+class HomeTabCategoryListAdapter : BaseAdapter<CategoryEntity>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -19,8 +19,8 @@ class HomeTabCategoryListAdapter : BaseAdapter<CategoriesEntity>() {
     }
 
     inner class ViewCategoryViewHolder(binding: ItemHomeCategoriesBinding) :
-        BaseViewHolder<ItemHomeCategoriesBinding, CategoriesEntity>(binding) {
-        override fun onBind(item: CategoriesEntity) {
+        BaseViewHolder<ItemHomeCategoriesBinding, CategoryEntity>(binding) {
+        override fun onBind(item: CategoryEntity) {
             binding.item = item
             try {
                 Glide.with(binding.categoryImg.context).load(item.categoryImage).centerCrop()

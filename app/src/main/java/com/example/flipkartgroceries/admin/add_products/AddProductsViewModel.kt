@@ -1,10 +1,10 @@
-package com.example.flipkartgroceries.admin.addProducts
+package com.example.flipkartgroceries.admin.add_products
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.flipkartgroceries.database.AppDataBase
-import com.example.flipkartgroceries.database.ProductsEntity
+import com.example.flipkartgroceries.database.ProductEntity
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
@@ -119,7 +119,7 @@ class AddProductsViewModel @Inject constructor(private val groceriesDataBase: Ap
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 groceriesDataBase.productsDao().insertProducts(
-                    ProductsEntity(
+                    ProductEntity(
                         categoryName = categoryType.value,
                         productName = productName.value,
                         productWeight = productWeight.value,
@@ -150,7 +150,7 @@ class AddProductsViewModel @Inject constructor(private val groceriesDataBase: Ap
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 groceriesDataBase.productsDao().updateProductDetails(
-                    ProductsEntity(
+                    ProductEntity(
                         categoryName = categoryType.value,
                         productName = productName.value,
                         productWeight = productWeight.value,

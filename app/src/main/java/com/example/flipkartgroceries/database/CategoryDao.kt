@@ -7,15 +7,15 @@ import androidx.room.Query
 import androidx.room.Update
 
 @Dao
-interface CategoriesDAO {
-    @Query("Select * from categoriesentity ")
-    fun getAllCategories():List<CategoriesEntity>
+interface CategoryDao {
+    @Query("Select * from categoryentity ")
+    fun getAllCategories():List<CategoryEntity>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insertCategories(category: CategoriesEntity)
+    fun insertCategories(category: CategoryEntity)
 
     @Update
-    suspend fun updateCategoryData(category: CategoriesEntity)
+    suspend fun updateCategoryData(category: CategoryEntity)
 
 //    @Query("Select * from categoriesentity where ")
 }

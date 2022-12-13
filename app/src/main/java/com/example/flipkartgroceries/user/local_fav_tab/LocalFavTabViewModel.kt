@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.flipkartgroceries.database.AppDataBase
-import com.example.flipkartgroceries.database.ProductsEntity
+import com.example.flipkartgroceries.database.ProductEntity
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -14,8 +14,8 @@ import javax.inject.Inject
 @HiltViewModel
 class LocalFavTabViewModel @Inject constructor(private val groceriesDataBase: AppDataBase) :
     ViewModel() {
-    var frequentlyBoughtList = MutableStateFlow(listOf<ProductsEntity>())
-    var specificProduct = MutableStateFlow(listOf<ProductsEntity>())
+    var frequentlyBoughtList = MutableStateFlow(listOf<ProductEntity>())
+    var specificProduct = MutableStateFlow(listOf<ProductEntity>())
     init {
         getAllProductDetails()
         specificProducts()

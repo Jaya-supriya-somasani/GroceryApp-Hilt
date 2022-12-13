@@ -1,4 +1,4 @@
-package com.example.flipkartgroceries.admin.addCategory
+package com.example.flipkartgroceries.admin.add_category
 
 import android.app.Activity.RESULT_OK
 import android.content.ContentValues.TAG

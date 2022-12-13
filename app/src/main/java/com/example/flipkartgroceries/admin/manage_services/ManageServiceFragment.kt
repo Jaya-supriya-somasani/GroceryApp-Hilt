@@ -1,4 +1,4 @@
-package com.example.flipkartgroceries.admin.manageServices
+package com.example.flipkartgroceries.admin.manage_services
 
 
 import androidx.fragment.app.viewModels
@@ -6,51 +6,51 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.flipkartgroceries.R
 import com.example.flipkartgroceries.base.BaseFragment
-import com.example.flipkartgroceries.database.CategoriesEntity
-import com.example.flipkartgroceries.database.ProductsEntity
+import com.example.flipkartgroceries.database.CategoryEntity
+import com.example.flipkartgroceries.database.ProductEntity
 import com.example.flipkartgroceries.databinding.FragmentManageServicesBinding
 import kotlinx.coroutines.flow.collectLatest
 
-class ManageServicesFragment :
+class ManageServiceFragment :
     BaseFragment<FragmentManageServicesBinding>() {
 
-    private val manageServicesViewModel: ManageServicesViewModel by viewModels()
+    private val manageServiceViewModel: ManageServiceViewModel by viewModels()
 
     override fun getLayoutResource() = R.layout.fragment_manage_services
 
 
     override fun setUp() {
-        dataBinding.viewModel = manageServicesViewModel
+        dataBinding.viewModel = manageServiceViewModel
         initToolbar()
         lifecycleScope.launchWhenResumed {
-            manageServicesViewModel.addCategoryEvent.collectLatest {
+            manageServiceViewModel.addCategoryEvent.collectLatest {
                 val addCategoryAction =
-                    ManageServicesFragmentDirections.actionManageServicesFragmentToAddCategoryFragment(
-                        CategoriesEntity(0, "", "")
+                    ManageServiceFragmentDirections.actionManageServicesFragmentToAddCategoryFragment(
+                        CategoryEntity(0, "", "")
                     )
                 findNavController().navigate(addCategoryAction)
             }
         }
         lifecycleScope.launchWhenResumed {
-            manageServicesViewModel.viewCategoriesEvent.collectLatest {
+            manageServiceViewModel.viewCategoriesEvent.collectLatest {
                 val viewCategoriesAction =
-                    ManageServicesFragmentDirections.actionManageServicesFragmentToViewCategoriesFragment()
+                    ManageServiceFragmentDirections.actionManageServicesFragmentToViewCategoriesFragment()
                 findNavController().navigate(viewCategoriesAction)
             }
         }
         lifecycleScope.launchWhenResumed {
-            manageServicesViewModel.addProductsEvent.collectLatest {
+            manageServiceViewModel.addProductsEvent.collectLatest {
                 val addProductsAction =
-                    ManageServicesFragmentDirections.actionManageServicesFragmentToAddProductsFragment(
-                        ProductsEntity(0, "", "", "", "", "", "", "")
+                    ManageServiceFragmentDirections.actionManageServicesFragmentToAddProductsFragment(
+                        ProductEntity(0, "", "", "", "", "", "", "")
                     )
                 findNavController().navigate(addProductsAction)
             }
         }
         lifecycleScope.launchWhenResumed {
-            manageServicesViewModel.viewProductsChannel.collectLatest {
+            manageServiceViewModel.viewProductsChannel.collectLatest {
                 val viewProductsAction =
-                    ManageServicesFragmentDirections.actionManageServicesFragmentToViewProductsFragment()
+                    ManageServiceFragmentDirections.actionManageServicesFragmentToViewProductsFragment()
                 findNavController().navigate(viewProductsAction)
             }
         }

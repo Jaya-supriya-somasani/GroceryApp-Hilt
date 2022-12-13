@@ -1,4 +1,4 @@
-package com.example.flipkartgroceries.admin.viewProducts
+package com.example.flipkartgroceries.admin.view_products
 
 import android.util.Log
 import android.view.ViewGroup
@@ -7,23 +7,23 @@ import com.example.flipkartgroceries.R
 import com.example.flipkartgroceries.base.BaseAdapter
 import com.example.flipkartgroceries.base.BaseViewHolder
 import com.example.flipkartgroceries.base.inflate
-import com.example.flipkartgroceries.database.ProductsEntity
+import com.example.flipkartgroceries.database.ProductEntity
 import com.example.flipkartgroceries.databinding.ItemProductsBinding
 
 class ViewProductsAdapter(
-    private val editBtnClicked: (ProductsEntity) -> (Unit)
+    private val editBtnClicked: (ProductEntity) -> (Unit)
 ) :
-    BaseAdapter<ProductsEntity>() {
+    BaseAdapter<ProductEntity>() {
     lateinit var binding: ItemProductsBinding
-    lateinit var itemPosition: ProductsEntity
+    lateinit var itemPosition: ProductEntity
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewProductsViewHolder {
        return ViewProductsViewHolder(parent.inflate(R.layout.item_products))
     }
     inner class ViewProductsViewHolder(binding: ItemProductsBinding) :
-        BaseViewHolder<ItemProductsBinding, ProductsEntity>(binding) {
+        BaseViewHolder<ItemProductsBinding, ProductEntity>(binding) {
 
-        override fun onBind(item: ProductsEntity) {
+        override fun onBind(item: ProductEntity) {
             binding.editBtn.setOnClickListener {
                 itemPosition = getItem(adapterPosition)
                 editBtnClicked(itemPosition)

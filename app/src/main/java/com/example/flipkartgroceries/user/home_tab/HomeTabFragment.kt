@@ -14,8 +14,8 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>() {
     override fun getLayoutResource() = R.layout.fragment_home_tab
     private val homeTabViewModel: HomeTabViewModel by viewModels()
     var categoryAdapter = HomeTabCategoryListAdapter()
-    var frequentlyBoughtAdapter=HomeFrequentlyBoughtAdapter()
-    var categoryItemsAdapter=CategoryItemsAdapter()
+    var frequentlyBoughtAdapter= HomeFrequentlyBoughtAdapter()
+    var categoryItemsAdapter= CategoryItemsAdapter()
 
     override fun setUp() {
         dataBinding.viewModel = homeTabViewModel
