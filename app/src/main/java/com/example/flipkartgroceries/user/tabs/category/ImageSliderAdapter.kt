@@ -1,4 +1,4 @@
-package com.example.flipkartgroceries.utils
+package com.example.flipkartgroceries.user.tabs.category
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

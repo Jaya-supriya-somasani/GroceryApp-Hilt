@@ -1,4 +1,4 @@
-package com.example.flipkartgroceries.user.categories_tab
+package com.example.flipkartgroceries.user.tabs.category
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class CategoriesTabViewModel @Inject constructor(private val groceriesDataBase: AppDataBase) :
+class CategoryViewModel @Inject constructor(private val groceriesDataBase: AppDataBase) :
     ViewModel() {
     var categoryList = MutableStateFlow(listOf<CategoryEntity>())
 

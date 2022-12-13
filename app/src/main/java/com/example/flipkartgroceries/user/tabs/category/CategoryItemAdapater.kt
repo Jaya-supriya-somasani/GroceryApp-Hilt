@@ -1,4 +1,4 @@
-package com.example.flipkartgroceries.user.categories_tab
+package com.example.flipkartgroceries.user.tabs.category
 
 import android.util.Log
 import android.view.ViewGroup

@@ -1,4 +1,4 @@
-package com.example.flipkartgroceries.user.home_tab
+package com.example.flipkartgroceries.user.tabs.home
 
 import android.util.Log
 import android.view.ViewGroup
@@ -10,7 +10,7 @@ import com.example.flipkartgroceries.base.inflate
 import com.example.flipkartgroceries.database.CategoryEntity
 import com.example.flipkartgroceries.databinding.ItemHomeCategoriesBinding
 
-class HomeTabCategoryListAdapter : BaseAdapter<CategoryEntity>() {
+class HomeCategoryListAdapter : BaseAdapter<CategoryEntity>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int

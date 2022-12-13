@@ -1,9 +1,9 @@
-package com.example.flipkartgroceries.user.fast_delivery_tab
+package com.example.flipkartgroceries.user.tabs.fast_delivery
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class FastDeliveryTabViewModel @Inject constructor() : ViewModel() {
+class FastDeliveryViewModel @Inject constructor() : ViewModel() {
 }

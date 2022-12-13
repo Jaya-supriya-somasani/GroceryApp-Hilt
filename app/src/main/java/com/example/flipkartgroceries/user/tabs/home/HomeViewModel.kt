@@ -1,4 +1,4 @@
-package com.example.flipkartgroceries.user.home_tab
+package com.example.flipkartgroceries.user.tabs.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -14,7 +14,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeTabViewModel @Inject constructor(private val groceriesDataBase: AppDataBase) :
+class HomeViewModel @Inject constructor(private val groceriesDataBase: AppDataBase) :
     ViewModel() {
     var categoriesDetailsList = MutableStateFlow(listOf<CategoryEntity>())
     var frequentlyBoughtProductsList = MutableStateFlow(listOf<ProductEntity>())

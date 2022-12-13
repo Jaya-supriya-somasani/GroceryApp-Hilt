@@ -17,7 +17,7 @@ class UserHomeFragment : BaseFragment<FragmentUserHomeBinding>() {
 
     override fun setUp() {
         dataBinding.viewModel = userServicesViewModel
-         val adapter = HomepageViewPager(this)
+         val adapter = HomePageViewPager(this)
         dataBinding.viewPager.adapter = adapter
         initTabLayout()
         viewPagerCallBacks()

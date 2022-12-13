@@ -1,4 +1,4 @@
-package com.example.flipkartgroceries.user.local_fav_tab
+package com.example.flipkartgroceries.user.tabs.local_favourite
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class LocalFavTabViewModel @Inject constructor(private val groceriesDataBase: AppDataBase) :
+class LocalFavouriteViewModel @Inject constructor(private val groceriesDataBase: AppDataBase) :
     ViewModel() {
     var frequentlyBoughtList = MutableStateFlow(listOf<ProductEntity>())
     var specificProduct = MutableStateFlow(listOf<ProductEntity>())

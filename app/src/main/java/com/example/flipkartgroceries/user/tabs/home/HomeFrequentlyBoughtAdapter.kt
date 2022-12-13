@@ -1,4 +1,4 @@
-package com.example.flipkartgroceries.user.home_tab
+package com.example.flipkartgroceries.user.tabs.home
 
 import android.util.Log
 import android.view.ViewGroup

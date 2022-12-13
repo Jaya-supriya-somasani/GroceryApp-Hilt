@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.flipkartgroceries.user.home_tab.HomeTabViewModel" />
+            type="com.example.flipkartgroceries.user.tabs.home.HomeViewModel" />
     </data>
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"

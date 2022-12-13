@@ -1,4 +1,4 @@
-package com.example.flipkartgroceries.user.local_fav_tab
+package com.example.flipkartgroceries.user.tabs.local_favourite
 
 import android.view.ViewGroup
 import com.bumptech.glide.Glide

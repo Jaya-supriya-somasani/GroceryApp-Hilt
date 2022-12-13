@@ -1,4 +1,4 @@
-package com.example.flipkartgroceries.user.fast_delivery_tab
+package com.example.flipkartgroceries.user.tabs.fast_delivery
 
 import android.os.Handler
 import android.os.Looper
@@ -9,16 +9,16 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.flipkartgroceries.R
 import com.example.flipkartgroceries.base.BaseFragment
 import com.example.flipkartgroceries.databinding.FragmentFastDeliveryTabBinding
-import com.example.flipkartgroceries.user.categories_tab.CategoryItemsAdapter
-import com.example.flipkartgroceries.utils.ImageSliderAdapter
+import com.example.flipkartgroceries.user.tabs.category.CategoryItemsAdapter
+import com.example.flipkartgroceries.user.tabs.category.ImageSliderAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class FastDeliveryTabFragment : BaseFragment<FragmentFastDeliveryTabBinding>() {
+class FastDeliveryFragment : BaseFragment<FragmentFastDeliveryTabBinding>() {
 
     override fun getLayoutResource() = R.layout.fragment_fast_delivery_tab
 
-    private val fastDeliveryTabViewModel: FastDeliveryTabViewModel by viewModels()
+    private val fastDeliveryTabViewModel: FastDeliveryViewModel by viewModels()
 
     private lateinit var handler: Handler
 

@@ -1,4 +1,4 @@
-package com.example.flipkartgroceries.user.categories_tab
+package com.example.flipkartgroceries.user.tabs.category
 
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -9,9 +9,9 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 
 @AndroidEntryPoint
-class CategoriesTabFragment : BaseFragment<FragmentCategoriesTabBinding>() {
+class CategoryFragment : BaseFragment<FragmentCategoriesTabBinding>() {
     override fun getLayoutResource() = R.layout.fragment_categories_tab
-    private val categoryTabViewModel: CategoriesTabViewModel by viewModels()
+    private val categoryTabViewModel: CategoryViewModel by viewModels()
 
     val adapter = CategoryItemsAdapter()
     override fun setUp() {

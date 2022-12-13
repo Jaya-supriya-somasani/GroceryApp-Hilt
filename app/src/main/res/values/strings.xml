@@ -51,6 +51,8 @@
     <string name="change_tv">Change</string>
     <string name="veggies_at_1_rupee_only_tv">Veggies at 1 rupee only</string>
     <string name="location_tv">Location</string>
+    <string name="one">1</string>
+    <string name="add_tv">Add</string>
 
 
 </resources>
