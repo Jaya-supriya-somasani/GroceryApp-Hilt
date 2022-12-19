@@ -36,8 +36,7 @@ class AddProductViewModel @Inject constructor(private val groceriesDataBase: App
     val productPriceError = MutableStateFlow("")
     val productPriceErrorEnable = MutableStateFlow(false)
     val productImageError = MutableStateFlow("")
-
-
+    val isAdd = MutableStateFlow(true)
     private val selectImageChannelEvent = Channel<Unit>()
     val selectImageEvent = selectImageChannelEvent.receiveAsFlow()
 

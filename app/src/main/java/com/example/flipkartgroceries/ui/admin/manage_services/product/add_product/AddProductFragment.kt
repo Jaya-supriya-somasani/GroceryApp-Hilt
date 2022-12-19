@@ -59,6 +59,7 @@ class AddProductFragment : BaseFragment<FragmentAddProductsBinding>() {
         addProductsViewModel.productPrice.value = args.details.productPrice
         addProductsViewModel.productDescription.value = args.details.description
         addProductsViewModel.selectProductImage.value = args.details.productImage
+        addProductsViewModel.isAdd.value=args.isUpdated
 
         lifecycleScope.launchWhenResumed {
             addProductsViewModel.selectImageEvent.collectLatest {

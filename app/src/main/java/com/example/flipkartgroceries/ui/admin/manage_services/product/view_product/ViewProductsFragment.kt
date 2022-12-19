@@ -46,7 +46,7 @@ class ViewProductsFragment : BaseFragment<FragmentViewProductsBinding>() {
                 productPrice = item.productPrice,
                 description = item.description,
                 productImage = item.productImage
-            )
+            ), isUpdated = true
         )
         findNavController().navigate(action)
     }

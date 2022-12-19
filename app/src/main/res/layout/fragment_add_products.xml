@@ -34,20 +34,6 @@
             android:fitsSystemWindows="true"
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/addProductTv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_10"
-                android:text="@string/add_products_tv"
-                android:textColor="@color/black"
-                android:textSize="@dimen/tv_20"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/addCategoryType"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -58,7 +44,7 @@
                 android:hint="@string/enter_category_type_tv"
                 app:errorEnabled="@{viewModel.categoryErrorEnable}"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/addProductTv">
+                app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/categoryTypeEdt"
@@ -202,9 +188,23 @@
                 android:onClick="@{()->viewModel.productsValidation()}"
                 android:text="@string/add_product_tv"
                 android:textAllCaps="false"
+                isVisible="@{!viewModel.isAdd}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/selectImg" />
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/selectImg"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@string/update_tv"
+                isVisible="@{viewModel.isAdd}"
+                android:textAllCaps="false"
+                android:layout_marginTop="@dimen/dimen_20"
+                android:onClick="@{()->viewModel.productsValidation()}"
+
+                />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
