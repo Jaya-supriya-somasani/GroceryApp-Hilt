@@ -24,6 +24,7 @@ class AddCategoryViewModel @Inject constructor(private val groceriesDataBase: Ap
     val categoryName = MutableStateFlow<String?>("")
     val categoryNameError = MutableStateFlow("")
     val categoryNameErrorEnable = MutableStateFlow(false)
+    val isSubmitted= MutableStateFlow(true)
 
 
     private val submitBtnEventChannel = Channel<Unit>()

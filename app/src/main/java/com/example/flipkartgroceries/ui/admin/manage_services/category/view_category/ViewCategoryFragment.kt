@@ -39,7 +39,7 @@ class ViewCategoryFragment :
     private fun editBtnClicked(item: CategoryEntity) {
         val action =
             ViewCategoryFragmentDirections.actionViewCategoriesFragmentToAddCategoryFragment(
-                CategoryEntity(item.categoryId, item.categoryImage, item.categoryName))
+                CategoryEntity(item.categoryId, item.categoryImage, item.categoryName), isUpdated = true)
         findNavController().navigate(action)
     }
 }

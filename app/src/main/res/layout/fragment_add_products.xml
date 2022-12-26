@@ -205,8 +205,6 @@
                 android:onClick="@{()->viewModel.productsValidation()}"
 
                 />
-
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

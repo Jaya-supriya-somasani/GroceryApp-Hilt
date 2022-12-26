@@ -27,7 +27,7 @@ class ManageServiceFragment :
                 val addCategoryAction =
                     ManageServiceFragmentDirections.actionManageServicesFragmentToAddCategoryFragment(
                         CategoryEntity(0, null, null)
-                    )
+                    , isUpdated = false)
                 findNavController().navigate(addCategoryAction)
             }
         }

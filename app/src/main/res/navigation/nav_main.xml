@@ -51,6 +51,8 @@
             app:destination="@id/view_categories_fragment" />
         <argument android:name="details"
             app:argType="com.example.flipkartgroceries.database.CategoryEntity"/>
+        <argument android:name="isUpdated"
+            app:argType="boolean"/>
     </fragment>
     <fragment
         android:id="@+id/view_categories_fragment"

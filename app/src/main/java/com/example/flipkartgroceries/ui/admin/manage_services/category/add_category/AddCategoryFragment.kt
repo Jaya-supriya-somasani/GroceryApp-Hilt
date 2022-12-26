@@ -58,6 +58,7 @@ class AddCategoryFragment : BaseFragment<FragmentAddCategoryBinding>() {
         addCategoryViewModel.categoryId.value=args.details.categoryId
         addCategoryViewModel.categoryImage.value=args.details.categoryImage
         addCategoryViewModel.categoryName.value=args.details.categoryName
+        addCategoryViewModel.isSubmitted.value=args.isUpdated
 
         lifecycleScope.launchWhenResumed {
             addCategoryViewModel.submitBtnEvent.collectLatest {
