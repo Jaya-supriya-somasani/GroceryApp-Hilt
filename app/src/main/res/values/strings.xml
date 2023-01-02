@@ -63,6 +63,7 @@
     <string name="offer_description">Offer will reflect at checkout</string>
     <string name="admin_image_tv">Admin Image</string>
     <string name="update_tv">Update</string>
+    <string name="auto_reading_otp">Auto reading otp</string>
 
 
 </resources>
