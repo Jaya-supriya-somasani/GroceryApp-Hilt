@@ -97,5 +97,12 @@ dependencies {
     implementation "androidx.activity:activity-ktx:1.6.1"
     implementation "androidx.fragment:fragment-ktx:1.5.4"
 
+    //auto filling otp libraries
+    implementation 'com.google.android.gms:play-services-auth:20.4.0'
+    implementation 'com.google.android.gms:play-services-auth-api-phone:18.0.1'
+    implementation 'org.apache.commons:commons-lang3:3.11'
+    implementation 'org.greenrobot:eventbus:3.2.0'
+
+
 
 }

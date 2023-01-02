@@ -1,7 +1,9 @@
 package com.example.flipkartgroceries.ui.user.tabs.fast_delivery
 
+import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
@@ -11,6 +13,8 @@ import com.example.flipkartgroceries.base.BaseFragment
 import com.example.flipkartgroceries.databinding.FragmentFastDeliveryTabBinding
 import com.example.flipkartgroceries.ui.user.tabs.category.CategoryItemsAdapter
 import com.example.flipkartgroceries.ui.user.tabs.category.ImageSliderAdapter
+import com.google.android.gms.auth.api.phone.SmsRetriever
+import com.google.android.gms.auth.api.phone.SmsRetrieverClient
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -22,9 +26,26 @@ class FastDeliveryFragment : BaseFragment<FragmentFastDeliveryTabBinding>() {
 
     private lateinit var handler: Handler
 
+    private lateinit var smsClient: SmsRetrieverClient
+
     var categoriesAdapter = CategoryItemsAdapter()
 
     lateinit var runnable: Runnable
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        smsClient = SmsRetriever.getClient(requireContext())
+        initSmsListener()
+    }
+
+    private fun initSmsListener() {
+        smsClient.startSmsRetriever()
+            .addOnSuccessListener { }
+            .addOnFailureListener { failure->
+                failure.printStackTrace()
+                Toast.makeText(requireContext(),failure.message,Toast.LENGTH_SHORT).show()
+        }
+    }
 
 
     override fun setUp() {

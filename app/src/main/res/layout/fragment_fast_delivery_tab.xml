@@ -114,6 +114,35 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_normal"
             app:layout_constraintTop_toBottomOf="@id/grab_offer_divider" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/otpEditTextVw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:layout_constraintTop_toBottomOf="@id/image_slider_viewpager"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="@dimen/margin_normal"
+            android:layout_marginTop="@dimen/margin_normal">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="Please enter otp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/otpEditTextVw"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/auto_reading_otp"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:layout_marginStart="@dimen/margin_normal"
+            android:textSize="@dimen/tv_16"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="@dimen/dimen_20"
+            android:textColor="@color/black"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
 </layout>
